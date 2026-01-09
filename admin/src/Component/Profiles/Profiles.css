@@ -22,12 +22,12 @@
 .table-grid {
   display: grid;
   grid-template-columns:
-    14%   /* ID */
-    18%   /* NAME */
-    18%   /* EMAIL */
-    20%   /* ADDRESS */
-    15%   /* PHONE */
-    12%;  /* ACTIONS */
+   
+    23%   /* NAME */
+    22%   /* EMAIL */
+    23%   /* ADDRESS */
+    18%   /* PHONE */
+    15%;  /* ACTIONS */
 
   align-items: center;
   padding: 16px 32px;

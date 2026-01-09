@@ -6,8 +6,11 @@ function User(props) {
 
   return (
     <div className="detail table-grid">
+      <div className='user'>
+        <h3 className="name">{firstname} {lastname}</h3>
       <h3 className="id">{_id}</h3>
-      <h3 className="name">{firstname} {lastname}</h3>
+      
+      </div>
       <h3 className="email">{email}</h3>
       <h3 className="address">{address}</h3>
       <h3 className="phone center">{phone}</h3>

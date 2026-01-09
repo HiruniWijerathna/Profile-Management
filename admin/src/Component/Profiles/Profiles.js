@@ -29,12 +29,12 @@ function Profiles() {
 
         {/* HEADER */}
         <div className="table-header table-grid">
-          <span>ID</span>
+         
           <span>Name</span>
           <span>Email</span>
           <span>Address</span>
           <span className="center">Phone</span>
-          <span className="center">Actions</span>
+          
         </div>
 
         {/* ROWS */}

@@ -1,11 +1,11 @@
 .detail {
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid #b0b4b9;
   font-size: 14px;
   color: #0f172a;
 }
 
 .detail:hover {
-  background: #f9fafb;
+  background: #cdcdcd;
 }
 
 /* Text */

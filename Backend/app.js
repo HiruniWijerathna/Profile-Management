@@ -1,12 +1,23 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const routes = require('./Routes/userRoute');
+
 
 const app = express();
 
-// Middleware to parse JSON requests
-app.use("/", (req, res, next) => {
+// Middleware to parse JSON
+app.use(express.json());
+
+// Basic route
+app.get("/", (req, res) => {
     res.send("API is running...");
 });
+// User routes
+app.use("/users", routes);
+
+
+
+
 
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://hiruniwijerathna7_db_user:qkH3qshAfrkqYSd7@cluster0.yvmhrx0.mongodb.net/')
@@ -18,5 +29,7 @@ mongoose.connect('mongodb+srv://hiruniwijerathna7_db_user:qkH3qshAfrkqYSd7@clust
     })
 
     .catch((err) => console.log((err)));
+
+
 
 

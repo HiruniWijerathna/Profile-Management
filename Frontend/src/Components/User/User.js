@@ -1,9 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './User.css';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-function User({ user }) {
-  const { _id, firstname, lastname, email, address, phone } = user;
+function User(props) {
+  const { _id, firstname, lastname, email, address, phone } = props.user;
+
+  const history = useNavigate();
+
+  const deleteHandler = async () => {
+    // Confirmation dialog
+    const confirmDelete = window.confirm(`Are you sure you want to delete ${firstname} ${lastname}?`);
+    if (!confirmDelete) return; // Stop if user clicks "Cancel"
+
+    try {
+      const res = await axios.delete(`http://localhost:5000/users/${_id}`);
+      console.log(res.data);
+      alert("User deleted successfully!");
+      history('/settings');
+    } catch (err) {
+      console.error("Delete failed:", err.response?.data || err.message);
+      alert("Failed to delete user. Check console for details.");
+    }
+  };
 
   return (
     <div className="detail table-grid">
@@ -17,8 +37,10 @@ function User({ user }) {
       <h3 className="phone center">{phone}</h3>
 
       <div className="actions">
-        <button className='edit'><Link to={`/settings/${_id}`} className="edit-btn">Edit</Link></button>
-        <button className="delete">Delete</button>
+        <button className='edit'>
+          <Link to={`/settings/${_id}`} className="edit-btn">Edit</Link>
+        </button>
+        <button onClick={deleteHandler} className="delete">Delete</button>
       </div>
     </div>
   );

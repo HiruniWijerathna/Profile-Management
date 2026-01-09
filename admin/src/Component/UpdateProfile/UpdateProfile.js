@@ -42,7 +42,7 @@ function UpdateProfile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(input);
-    sendRequest().then(() => history('/settings'));
+    sendRequest().then(() => history('/profiles'));
   };
 
 
@@ -64,9 +64,7 @@ function UpdateProfile() {
             
             required
           />
-        </div>
-
-        <div>
+      
           <label>Last Name</label>
           <input
             type="text"

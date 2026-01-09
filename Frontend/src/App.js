@@ -16,10 +16,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/mainhome" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/update" element={<UpdateProfile />} />
         <Route path="/delete" element={<DeleteProfile />} />
         <Route path="/hero" element={<Hero />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/settings/:id" element={<UpdateProfile/>} />
       </Routes>
     </div>
   );

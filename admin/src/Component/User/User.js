@@ -1,5 +1,6 @@
 import React from 'react';
 import './User.css';
+import { Link } from 'react-router-dom';
 
 function User(props) {
   const { _id, firstname, lastname, email, address, phone } = props.user;
@@ -16,7 +17,7 @@ function User(props) {
       <h3 className="phone center">{phone}</h3>
 
       <div className="actions">
-        <button className="edit">Edit</button>
+         <button className='edit'><Link to={`/profiles/${_id}`} className="edit-btn">Edit</Link></button>
         <button className="delete">Delete</button>
       </div>
     </div>

@@ -4,9 +4,11 @@ const routes = require('./Routes/userRoute');
 
 
 const app = express();
+const cors = require('cors');
 
 // Middleware to parse JSON
 app.use(express.json());
+app.use(cors());
 
 // Basic route
 app.get("/", (req, res) => {
@@ -14,6 +16,8 @@ app.get("/", (req, res) => {
 });
 // User routes
 app.use("/users", routes);
+
+
 
 
 

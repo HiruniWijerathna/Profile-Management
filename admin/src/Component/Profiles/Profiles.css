@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+.table-title {
+  margin: 24px 48px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Card container */
+.profiles-container {
+  margin: 0 48px 48px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* Shared grid */
+.table-grid {
+  display: grid;
+  grid-template-columns:
+    14%   /* ID */
+    18%   /* NAME */
+    18%   /* EMAIL */
+    20%   /* ADDRESS */
+    15%   /* PHONE */
+    12%;  /* ACTIONS */
+
+  align-items: center;
+  padding: 16px 32px;
+}
+
+/* Header */
+.table-header {
+  background: #f8fafc;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #64748b;
+}
+
+.table-header span {
+  text-transform: uppercase;
+}
+
+/* Utility */
+.center {
+  text-align: center;
+}

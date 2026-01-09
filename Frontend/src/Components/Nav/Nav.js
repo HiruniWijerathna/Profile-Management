@@ -13,7 +13,8 @@ function Nav() {
         </li>
 
         <li className="dropdown">
-          Settings
+           <Link to="/settings" className='settings'>Settings</Link>
+      
           <ul className="dropdown-menu">
             <li>
              <Link to="/profile" className='profile'>Profile</Link>

@@ -1,0 +1,94 @@
+/* Page background */
+body {
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Center form */
+.register-form {
+  width: 100%;
+  max-width: 420px;
+  margin: 80px auto;
+  padding: 30px 35px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Title */
+.register-form h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2c3e50;
+  font-size: 26px;
+}
+
+/* Input groups */
+.register-form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+/* Labels */
+.register-form label {
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Inputs */
+.register-form input {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.register-form input:focus {
+  border-color: #6c63ff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+/* Button */
+.register-form button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #6c63ff, #4b47d6);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.register-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .register-form {
+    margin: 50px 15px;
+    padding: 25px;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

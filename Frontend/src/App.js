@@ -7,12 +7,19 @@ import Hero from './Components/Hero/Hero';
 import UpdateProfile from './Components/UpdateProfile/UpdateProfile';
 import DeleteProfile from './Components/DeleteProfile/DeleteProfile';
 import Settings from './Components/Settings/Settings';
+import Register from './Components/Register/Register'
+import Login from './Components/Login/Login'
+
 
 function App() {
   return (
     <div className="App">
+
+    
+    
  
       <Routes>
+        
         <Route path="/" element={<Home />} />
         <Route path="/mainhome" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
@@ -20,6 +27,11 @@ function App() {
         <Route path="/hero" element={<Hero />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/settings/:id" element={<UpdateProfile/>} />
+
+        <Route path="/mainhero" element={<Hero />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+
       </Routes>
     </div>
   );

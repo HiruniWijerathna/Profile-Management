@@ -1,53 +1,25 @@
-* {
-  box-sizing: border-box;
+body {
+  background: #f4f7fb;
 }
 
+/* Page title */
 .table-title {
-  margin: 24px 48px;
-  font-size: 22px;
-  font-weight: 600;
-  color: #0f172a;
-}
-
-/* Card container */
-.profiles-container {
-  margin: 0 48px 48px;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-}
-
-/* Shared grid */
-.table-grid {
-  display: grid;
-  grid-template-columns:
-   
-    23%   /* NAME */
-    22%   /* EMAIL */
-    23%   /* ADDRESS */
-    18%   /* PHONE */
-    15%;  /* ACTIONS */
-
-  align-items: center;
-  padding: 16px 32px;
-}
-
-/* Header */
-.table-header {
-  background: #dde4eb;
-  border-bottom: 1px solid #595959;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: #343b43;
-}
-
-.table-header span {
-  text-transform: uppercase;
-}
-
-/* Utility */
-.center {
   text-align: center;
+  margin: 30px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Grid layout like Hubstaff */
+.profiles-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 0 40px 60px;
+}
+
+/* Remove table header */
+.table-header {
+  display: none;
 }

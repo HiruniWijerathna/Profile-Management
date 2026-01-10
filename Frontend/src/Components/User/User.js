@@ -37,10 +37,10 @@ function User(props) {
       <h3 className="phone center">{phone}</h3>
 
       <div className="actions">
-        <button className='edit'>
-          <Link to={`/settings/${_id}`} className="edit-btn">Edit</Link>
-        </button>
-        <button onClick={deleteHandler} className="delete">Delete</button>
+       
+          <Link to={`/view/${_id}`} className="edit-btn">View</Link>
+        
+        <button className='delete' onClick={deleteHandler}>Delete</button>
       </div>
     </div>
   );

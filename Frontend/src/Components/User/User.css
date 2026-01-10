@@ -1,78 +1,107 @@
+/* Card */
 .detail {
-  border-bottom: 1px solid #b9bfc5;
-  font-size: 14px;
-  color: #0f172a;
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 25px 20px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: all 0.25s ease;
 }
 
 .detail:hover {
-  background: #e9e9e9;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  transform: translateY(-5px);
 }
 
-/* Text */
-.detail h3 {
-  margin: 0;
-  font-weight: 500;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* ID */
-.id {
-  font-size: 12px;
-  color: #5b697e;
+/* Avatar */
+.user::before {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: #e5e7eb url("https://i.pravatar.cc/150") center/cover no-repeat;
 }
 
 /* Name */
 .name {
+  font-size: 17px;
   font-weight: 600;
-  color: #020617;
+  color: #222;
+  margin-bottom: 4px;
 }
 
-/* Email & address */
-.email,
-.address {
-  color: #334155;
+/* Hide ID */
+.id {
+  display: none;
 }
 
-/* Phone */
-.phone {
-  font-weight: 500;
-}
-
-/* Actions */
-.actions {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.actions button {
-  padding: 8px 0;
-  border-radius: 999px;
-  border: none;
+/* Email */
+.email {
   font-size: 13px;
-  font-weight: 600;
+  color: #3b82f6;
+  margin-bottom: 6px;
+}
+
+/* Address */
+.address {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Phone badge */
+.phone {
+  display: inline-block;
+  background: #e6f4ea;
+  color: #22c55e;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+/* Action buttons */
+.actions {
+  margin-top: 15px;
+}
+
+/* View profile button */
+/* VIEW BUTTON */
+.edit-btn {
+  padding: 8px 20px;
+  background-color: #176cd3;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  
+}
+
+.edit-btn:hover {
+  background-color: #21449c;
+  transform: scale(1.05);
+}
+/* Delete button */
+.delete {
+  width: 100%;
+  background: transparent;
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 13px;
   cursor: pointer;
-  transition: all 0.2s ease;
 }
 
-/* Edit */
-.actions .edit {
-  background: #e0fdfa;
-  color: #0f766e;
+.delete:hover {
+  background: #ef4444;
+  color: white;
 }
 
-.actions .edit:hover {
-  background: #99f6e4;
-}
-
-/* Delete */
-.actions .delete {
-  background: #fee2e2;
-  color: #b91c1c;
-}
-
-.actions .delete:hover {
-  background: #fecaca;
+.delete {
+  display: none;
 }

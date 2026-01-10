@@ -41,7 +41,7 @@ function Profile() {
     try {
       await sendRequest();
       console.log('Profile saved:', input);
-      navigate('/settings');
+      navigate('/myprofile');
     } catch (error) {
       console.error('Error saving profile:', error);
       alert('Email already exists or server error');

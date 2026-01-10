@@ -42,7 +42,7 @@ function UpdateProfile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(input);
-    sendRequest().then(() => history('/settings'));
+    sendRequest().then(() => history('/myprofile'));
   };
 
 

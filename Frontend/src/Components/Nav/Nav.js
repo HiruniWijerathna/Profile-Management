@@ -6,7 +6,7 @@ import { FaUserCircle } from "react-icons/fa";
 function Nav() {
   return (
     <nav className="navbar">
-      <div className="logo">LOGO</div>
+      <div className="logo1">Sharefolio</div>
 
       <ul className="nav-menu">
         <li>
@@ -26,7 +26,7 @@ function Nav() {
                 <Link to="/myprofile" className="update">View My Profile</Link>
               </li>
               <li>
-                <Link to="/Profile" className="profile">Manage Profile</Link>
+                <Link to="/Profile" className="profile">Create Profile</Link>
               </li>
              </ul>
           </li>

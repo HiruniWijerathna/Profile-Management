@@ -11,17 +11,18 @@
   align-items: center;
   justify-content: space-between;
   padding: 14px 40px;
-  background-color: #ffffff;
+  background-color: #fbf9fd;
   border-bottom: 1px solid #eaeaea;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Logo */
-.logo {
+.logo1 {
   font-size: 20px;
-  font-weight: 700;
-  color: #111;
+  font: bold;
+  font-style: italic;
+  font-style:oblique;
 }
+
 
 /* Menu */
 .nav-menu {

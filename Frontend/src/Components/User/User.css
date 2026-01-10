@@ -71,7 +71,7 @@
 /* VIEW BUTTON */
 .edit-btn {
   padding: 8px 20px;
-  background-color: #176cd3;
+  background-color: #651a83;
   color: white;
   text-decoration: none;
   border-radius: 6px;
@@ -82,7 +82,7 @@
 }
 
 .edit-btn:hover {
-  background-color: #21449c;
+  background-color: #9128ba;
   transform: scale(1.05);
 }
 /* Delete button */

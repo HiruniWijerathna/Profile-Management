@@ -1,72 +1,91 @@
+/* Page Background */
 .update-profile-page {
   min-height: 100vh;
-  background-color: #f7f9fc;
+  background-color: #e6dbff;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.profile-form {
-  margin-top: 40px;
-  background-color: #ffffff;
-  padding: 30px 40px;
-  width: 100%;
-  max-width: 420px;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
-
+/* Main Card */
+.uprofile-card {
+  display: flex;
+  width: 850px;
+  max-width: 95%;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
 }
 
-.profile-form h2 {
+/* Left Image */
+.uprofile-image {
+  width: 50%;
+  background-color: #f6eaff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.uprofile-image img {
+  width: 80%;
+  height: auto;
+}
+
+/* Right Form */
+.uprofile-form {
+  width: 50%;
+  padding: 40px;
+}
+
+.uprofile-form h2 {
   text-align: center;
   margin-bottom: 25px;
-  color: #1f2937;
+  font-size: 26px;
+  font-weight: 600;
+  color: #2f1f37;
 }
 
-.profile-form div {
+.uprofile-form div {
   display: flex;
   flex-direction: column;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
-.profile-form label {
+.uprofile-form label {
   font-size: 14px;
-  margin-bottom: 6px;
-  color: #374151;
-}
-
-.profile-form input {
-  padding: 10px 12px;
-  font-size: 14px;
-  border-radius: 6px;
-  border: 1px solid #d1d5db;
-  outline: none;
-  transition: border-color 0.2s ease;
-}
-
-.profile-form input:focus {
-  border-color: #2563eb;
-}
-
-.profile-form button {
-  margin-top: 10px;
-  padding: 11px;
-  font-size: 15px;
   font-weight: 500;
-  background-color: #c8ab29;
+  margin-bottom: 6px;
+  color: #483751;
+}
+
+.uprofile-form input {
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid #d9d1db;
+  font-size: 14px;
+}
+
+.uprofile-form input:focus {
+  outline: none;
+  border-color: #560766;
+  box-shadow: 0 0 0 3px rgba(63, 7, 101, 0.2);
+}
+
+.uprofile-form button {
+  margin-top: 10px;
+  height: 45px;
+  background-color: #52096c;
   color: #ffffff;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  padding: 10px 45px;
 }
 
-.profile-form button:hover {
-  background-color: #d8cf1d;
-}
-
-@media (max-width: 480px) {
-  .profile-form {
-    padding: 25px 20px;
-  }
+.uprofile-form button:hover {
+  background-color: #a526cf;
 }

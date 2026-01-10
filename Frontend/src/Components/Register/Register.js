@@ -1,88 +1,83 @@
-import axios from 'axios';
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import NavHero from '../NavHero/NavHero'
-import './Register.css';
+import React, { useState } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import "./Register.css";
 
 function Register() {
+  const navigate = useNavigate();
 
-  const history = useNavigate();
   const [user, setUser] = useState({
     name: "",
     gmail: "",
-    password: ""
+    password: "",
   });
 
-  const handleInputChange = (e) => {
-    const {name, value} = e.target;
-    setUser((prevUser) => ({...prevUser,
-      [name]: value}));
-  }
+  const handleChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    sendRequest().then(() => {
+    try {
+      await axios.post("http://localhost:5000/register", user);
       alert("Register success");
-      history("/login");
-    }).catch((err) => {
+      navigate("/login");
+    } catch (err) {
       alert(err.message);
-    });
-  }
-
-  const sendRequest= async()=>{
-    await axios.post("http://localhost:5000/register",{
-      name:String(user.name),
-      gmail:String(user.gmail),
-    password:String(user.password)
-      }).then((res)=> res.data);
-  }
-
+    }
+  };
 
   return (
-    <div>
-      <NavHero/>
+    <div className="register-container">
+      <div className="register-card">
 
+        {/* Left Image */}
+        <div className="register-image">
+          <img src="/register.jpg" alt="Register" />
+        </div>
+
+        {/* Right Form */}
         <form className="register-form" onSubmit={handleSubmit}>
-        <h2>User Register</h2>
+          <h2>REGISTER</h2>
+          <p className="subtitle">Create your account</p>
 
-        <div>
           <label>Name</label>
           <input
             type="text"
             name="name"
             value={user.name}
-            onChange={handleInputChange}
+            onChange={handleChange}
             required
           />
-        </div>
 
-          <div>
           <label>Email</label>
           <input
-            type="text"
+            type="email"
             name="gmail"
             value={user.gmail}
-            onChange={handleInputChange}
+            onChange={handleChange}
             required
           />
-        </div>
 
-          <div>
           <label>Password</label>
           <input
-            type="text"
+            type="password"
             name="password"
             value={user.password}
-            onChange={handleInputChange}
+            onChange={handleChange}
             required
           />
-        </div>
 
-        <button type="submit">Register</button>
-      </form>
-      
+          <button type="submit">Register</button>
+
+          <p className="login-link">
+            Already have an account? <Link to="/login">Login</Link>
+          </p>
+        </form>
+
+      </div>
     </div>
-  )
+  );
 }
 
-export default Register
+export default Register;

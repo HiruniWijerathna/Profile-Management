@@ -1,71 +1,74 @@
-.profile-page {
+.cprofile-container {
   min-height: 100vh;
-  background-color: #f7f9fc;
+  background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.profile-form {
-  margin-top: 40px;
-  background-color: #ffffff;
-  padding: 30px 40px;
-  width: 100%;
-  max-width: 420px;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
+.cprofile-card {
+  background: #ffffff;
+  width: 900px;
+  height: 520px;
+  display: flex;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-.profile-form h2 {
-  text-align: center;
-  margin-bottom: 25px;
-  color: #1f2937;
+/* Left Image */
+.cprofile-image {
+  flex: 1;
+  background: #f5ecff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.profile-form div {
+.cprofile-image img {
+  width: 85%;
+  max-height: 90%;
+}
+
+/* Right Form */
+.cprofile-form {
+  flex: 1;
+  padding: 50px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 18px;
+  justify-content: center;
 }
 
-.profile-form label {
-  font-size: 14px;
-  margin-bottom: 6px;
-  color: #374151;
+.cprofile-form h2 {
+  margin-bottom: 25px;
+  color: #4c1d95;
+  font-size: 28px;
 }
 
-.profile-form input {
-  padding: 10px 12px;
-  font-size: 14px;
-  border-radius: 6px;
+.cprofile-form input {
+  margin-bottom: 15px;
+  padding: 12px 15px;
+  border-radius: 8px;
   border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.cprofile-form input:focus {
   outline: none;
-  transition: border-color 0.2s ease;
+  border-color: #7c3aed;
 }
 
-.profile-form input:focus {
-  border-color: #2563eb;
-}
-
-.profile-form button {
+.cprofile-form button {
   margin-top: 10px;
-  padding: 11px;
-  font-size: 15px;
-  font-weight: 500;
-  background-color: #c8ab29;
-  color: #ffffff;
+  padding: 12px;
+  background: #6b21a8;
+  color: white;
+  font-size: 16px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
-.profile-form button:hover {
-  background-color: #d8cf1d;
-}
-
-@media (max-width: 480px) {
-  .profile-form {
-    padding: 25px 20px;
-  }
+.cprofile-form button:hover {
+  background: #581c87;
 }

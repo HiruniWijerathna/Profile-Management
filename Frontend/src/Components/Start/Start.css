@@ -1,0 +1,48 @@
+/* Full page background */
+.start-page {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dark overlay */
+.overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Circular logo */
+.llogo {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 30px;
+  border: 4px solid #bc49e9;
+}
+
+/* Start button */
+.start-button {
+  padding: 12px 50px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: #bc49e9;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.start-button:hover {
+  background-color: #e6aff0;
+  transform: scale(1.05);
+}

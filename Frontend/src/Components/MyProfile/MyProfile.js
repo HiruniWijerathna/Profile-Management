@@ -6,16 +6,20 @@ import './MyProfile.css';
 
 function MyProfile() {
   const [user, setUser] = useState(null);
-  const navigate = useNavigate(); // for redirect after delete
+  const navigate = useNavigate();
 
-  // Delete profile handler
+  // Delete profile with confirmation
   const deleteHandler = async () => {
+    const confirmDelete = window.confirm(
+      'Are you sure you want to delete your account?\nThis action cannot be undone.'
+    );
+
+    if (!confirmDelete) return;
+
     try {
       await axios.delete(`http://localhost:5000/users/${user._id}`);
       setUser(null);
-
-      // Redirect to home page after delete
-      navigate('/mainhome'); // change '/' if your home route is different
+      navigate('/mainhome');
     } catch (error) {
       console.error('Error deleting profile:', error);
       alert('Failed to delete profile.');
@@ -28,6 +32,7 @@ function MyProfile() {
       try {
         const res = await axios.get('http://localhost:5000/users');
         const users = res.data.users || res.data;
+
         if (users && users.length > 0) {
           setUser(users[users.length - 1]);
         }
@@ -44,33 +49,35 @@ function MyProfile() {
   return (
     <>
       <Nav />
-      <div className="profile-wrapper">
-        <div className="profile-card">
-          
-          <div className="profile-header">
-            <div className="profile-avatar">
+
+      <div className="mprofile-wrapper">
+        <div className="mprofile-card">
+
+          <div className="mprofile-header">
+            <div className="mprofile-avatar">
               {user.firstname.charAt(0)}
             </div>
             <h2>{user.firstname} {user.lastname}</h2>
-            <span className="profile-email">{user.email}</span>
+            <span className="mprofile-email">{user.email}</span>
           </div>
 
-          <div className="profile-details">
-            <div className="detail-item">
+          <div className="mprofile-details">
+            <div className="mdetail-item">
               <span>Address</span>
               <p>{user.address}</p>
             </div>
 
-            <div className="detail-item">
+            <div className="mdetail-item">
               <span>Phone</span>
               <p>{user.phone}</p>
             </div>
           </div>
 
-          <div className="profile-actions">
+          <div className="mprofile-actions">
             <Link to={`/settings/${user._id}`} className="btn edit-btn">
               Edit Profile
             </Link>
+
             <button onClick={deleteHandler} className="btn delete-btn">
               Delete Account
             </button>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function NavHero() {
   return (
     <nav className="navbar">
-      <div className="logo">LOGO</div>
+      <img src="/logo.png" alt="Logo" className="logoo" />
 
       <ul className="nav-menu">
         <li>

@@ -1,0 +1,132 @@
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  color: white;
+
+  /* Background image with overlay */
+  background:
+    linear-gradient(
+      rgba(155, 70, 229, 0.85),
+      rgba(189, 99, 241, 0.85)
+    ),
+    url("../../assets/home.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.description {
+  max-width: 600px;
+  margin: 15px auto;
+}
+
+.hero-buttons {
+  margin-top: 25px;
+  border: #111827;
+}
+
+.btn {
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 600;
+  
+}
+
+
+/* Secondary button */
+.btn.secondary {
+  border: 2px solid white;
+  color: white;
+  background: transparent;
+  padding: 8px 40px;
+}
+
+/* Hover effect */
+.btn.secondary:hover {
+  background: white;
+  color: #6d28d9;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.features {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  padding: 25px;
+  border-radius: 12px;
+  background: #f9fafb;
+}
+
+
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #111827;
+  color: #fff;
+}
+
+.cta {
+  position: relative;
+  padding: 80px 20px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+
+  background:rgb(211, 206, 253);
+   
+   
+}
+
+.cta h2 {
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+/* CTA BUTTON */
+.cta .btn.primary {
+  background: white;
+  color: #4f46e5;
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.cta .btn.primary:hover {
+  background: #e0e7ff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .cta h2 {
+    font-size: 1.8rem;
+  }
+}

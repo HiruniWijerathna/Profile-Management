@@ -11,6 +11,7 @@ import Register from './Components/Register/Register'
 import Login from './Components/Login/Login'
 import MyProfile from './Components/MyProfile/MyProfile'
 import View from './Components/View/View'
+import Start from './Components/Start/Start'
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
 
       <Routes>
         
-         <Route path="/" element={<Hero />} />
+         <Route path="/" element={<Start />} />
+         <Route path="/hero" element={<Hero />} />
         <Route path="/mainhome" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/delete" element={<DeleteProfile />} />

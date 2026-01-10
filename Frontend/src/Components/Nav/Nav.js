@@ -17,7 +17,7 @@ function Nav() {
            <Link to="/settings" className='settings'>Peoples</Link>
         </li>
          <li className="dropdown">
-            <Link to="/myprofile" className="settings">
+            <Link to="" className="settings">
               <FaUserCircle size={22} />
             </Link>
 
@@ -26,7 +26,7 @@ function Nav() {
                 <Link to="/myprofile" className="update">View My Profile</Link>
               </li>
               <li>
-                <Link to="/profile" className="profile">Manage Profile</Link>
+                <Link to="/Profile" className="profile">Manage Profile</Link>
               </li>
              </ul>
           </li>

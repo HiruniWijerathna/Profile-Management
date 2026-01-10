@@ -1,6 +1,7 @@
 import React from 'react';
 import './Nav.css';
 import { Link } from 'react-router-dom';
+import { FaUserCircle } from "react-icons/fa";
 
 function Nav() {
   return (
@@ -13,20 +14,22 @@ function Nav() {
         </li>
 
         <li className="dropdown">
-           <Link to="/settings" className='settings'>Settings</Link>
-      
-          <ul className="dropdown-menu">
-            <li>
-             <Link to="/profile" className='profile'>Profile</Link>
-            </li>
-            <li>
-              <Link to="/update" className='update'>Update Account</Link>
-            </li>
-            <li>
-              <Link to="/delete" className='delete'>Delete Account</Link>
-            </li>
-          </ul>
+           <Link to="/settings" className='settings'>Peoples</Link>
         </li>
+         <li className="dropdown">
+            <Link to="/myprofile" className="settings">
+              <FaUserCircle size={22} />
+            </Link>
+
+            <ul className="dropdown-menu">
+              <li>
+                <Link to="/myprofile" className="update">View My Profile</Link>
+              </li>
+              <li>
+                <Link to="/profile" className="profile">Manage Profile</Link>
+              </li>
+             </ul>
+          </li>
 
         <li className="logout">
           <Link to="/hero" className='logout'>Logout</Link>

@@ -69,7 +69,7 @@
 /* Actions */
 .insta-actions {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   font-size: 22px;
   margin-bottom: 6px;
 }

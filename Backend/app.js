@@ -30,6 +30,7 @@ app.get("/", (req, res) => {
 // User routes
 app.use("/users", userRoutes);
 
+
 // ========== REGISTER & LOGIN ==========
 app.post("/register", async (req, res) => {
   const { name, gmail, password } = req.body;
@@ -122,8 +123,6 @@ app.get("/getImage", async (req, res) => {
     res.status(500).json({ status: "error", error: err.message });
   }
 });
-
-
 
 // ========== DATABASE ==========
 mongoose

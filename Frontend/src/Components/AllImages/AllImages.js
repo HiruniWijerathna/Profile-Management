@@ -34,12 +34,13 @@ function AllImages() {
     }));
   };
 
-  // 🔍 Filter by NAME ONLY
+  // 🔍 Filter by name OR title
   const filteredImages = allImages.filter((data) => {
-    const fullName =
-      `${data.firstname || ""} ${data.lastname || ""}`.toLowerCase();
-
-    return fullName.includes(searchTerm.toLowerCase());
+    const fullName = `${data.firstname || ""} ${data.lastname || ""}`.toLowerCase();
+   
+    return (
+      fullName.includes(searchTerm.toLowerCase()) 
+    );
   });
 
   return (
@@ -53,19 +54,11 @@ function AllImages() {
         <div className="search-bar">
           <input
             type="text"
-            placeholder="Search by name"
+            placeholder="Search by name or title"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-
-          <button
-            onClick={() => {
-              setSearchTerm("");
-              getImages();
-            }}
-          >
-            Reset
-          </button>
+          <button onClick={getImages}>Reset</button>
         </div>
 
         {loading ? (
@@ -76,7 +69,7 @@ function AllImages() {
           <div className="insta-grid">
             {filteredImages.map((data) => (
               <div className="insta-card" key={data._id}>
-
+                
                 {/* Header */}
                 <div className="insta-header">
                   <img
@@ -92,6 +85,9 @@ function AllImages() {
                     {data.firstname || "Unknown"} {data.lastname || ""}
                   </span>
                 </div>
+
+                {/* Image Title */}
+                {data.title && <p className="insta-title">{data.title}</p>}
 
                 {/* Image */}
                 <img

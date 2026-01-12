@@ -15,6 +15,9 @@ import Start from './Components/Start/Start'
 import ImageUplode from './Components/ImageUplode/ImageUplode'
 import AllImages from './Components/AllImages/AllImages'
 import SearchImages from './Components/SearchImages/SearchImages'
+import ViewImage from "./Components/viewImage/viewImage";
+import UploadImageEdit from './Components/UploadImageEdit/UploadImageEdit';
+
 
 function App() {
   return (
@@ -35,6 +38,10 @@ function App() {
         <Route path="/imageuplode" element={<ImageUplode />} />
           <Route path="/all-images" element={<AllImages />} />
           <Route path="/search-images" element={<SearchImages />} />
+          <Route path="/view-images/:userEmail" element={<ViewImage />} />
+         <Route path="/all-images/:id" element={<UploadImageEdit />} />
+
+
 
 
         <Route path="/mainhero" element={<Hero />} />

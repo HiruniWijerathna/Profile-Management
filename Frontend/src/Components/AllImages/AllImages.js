@@ -50,16 +50,24 @@ function AllImages() {
       <div className="page">
         <h2 className="page-title">All Uploaded Images</h2>
 
-        {/* 🔍 SEARCH BAR */}
-        <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Search by name or title"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <button onClick={getImages}>Reset</button>
-        </div>
+       {/* 🔍 SEARCH BAR */}
+<div className="search-bar">
+  <input
+    type="text"
+    placeholder="Search by name or title"
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+  />
+  <button
+    onClick={() => {
+      setSearchTerm(""); // Clear the search input
+      getImages();       // Optionally re-fetch all images
+    }}
+  >
+    Reset
+  </button>
+</div>
+
 
         {loading ? (
           <p className="status-text">Loading images...</p>

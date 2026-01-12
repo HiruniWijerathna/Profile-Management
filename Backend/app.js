@@ -69,12 +69,22 @@ const upload = multer({ storage });
 // ========== IMAGE UPLOAD ==========
 app.post("/uploadImg", upload.single("image"), async (req, res) => {
   try {
-    const { email } = req.body;
-    if (!req.file || !email)
-      return res.status(400).json({ status: "error", message: "Image or email missing" });
+    const { email, title } = req.body;
 
-    await ImageModel.create({ image: req.file.filename, email });
-    res.json({ status: "ok", message: "Image uploaded" });
+    if (!req.file || !email || !title) {
+      return res.status(400).json({
+        status: "error",
+        message: "Image, email, or title missing",
+      });
+    }
+
+    await ImageModel.create({
+      image: req.file.filename,
+      email,
+      title, // save title
+    });
+
+    res.json({ status: "ok", message: "Image uploaded successfully" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ status: "error", error: err.message });
@@ -87,7 +97,7 @@ app.get("/getImage", async (req, res) => {
     const imagesWithUser = await ImageModel.aggregate([
       {
         $lookup: {
-          from: "userdetails",    // MongoDB collection name (lowercase + plural)
+          from: "userdetails",    // MongoDB collection name
           localField: "email",    // email in ImageModel
           foreignField: "email",  // email in UserDetails
           as: "userInfo",
@@ -96,11 +106,12 @@ app.get("/getImage", async (req, res) => {
       { $unwind: { path: "$userInfo", preserveNullAndEmptyArrays: true } },
       {
         $project: {
+          title: 1,               // include title
           image: 1,
           email: 1,
           firstname: "$userInfo.firstname",
           lastname: "$userInfo.lastname",
-          profilePhoto:"$userInfo.profilePhoto",
+          profilePhoto: "$userInfo.profilePhoto",
         },
       },
     ]);

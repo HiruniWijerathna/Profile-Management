@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 const imageSchema = new mongoose.Schema(
   {
-    image: { type: String, required: true }, // filename
+    title: { type: String, required: true }, // new field
+    image: { type: String, required: true }, 
     email: { type: String, required: true, trim: true, lowercase: true },
   },
   { timestamps: true }

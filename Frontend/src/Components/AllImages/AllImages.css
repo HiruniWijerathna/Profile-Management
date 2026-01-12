@@ -46,7 +46,7 @@
   height: 42px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #ff3d6b;
+  border: 2px solid #7f1a6e;
 }
 
 .insta-username {
@@ -86,11 +86,11 @@
 /* Like button */
 .like-btn {
   color: #ffffff;           /* WHITE before click */
-  filter: drop-shadow(0 0 2px #000); /* visible on white */
+  filter: drop-shadow(0 0 1px #000); /* visible on white */
 }
 
 .like-btn.liked {
-  color: #e0245e;           /* RED after click */
+  color: #e02424;           /* RED after click */
   animation: pop 0.3s ease;
 }
 
@@ -110,4 +110,14 @@
 .status-text {
   text-align: center;
   color: #666;
+}
+/* Image Title - Social Media Style */
+.insta-title {
+  font-weight: 600;             /* Semi-bold for clear visibility */
+  font-size: 16px;              /* Medium font size */
+  color: #111;                  /* Dark color for contrast */
+  margin: 12px 12px 12px 12px;  /* Top/bottom spacing, horizontal padding aligns with card */
+  line-height: 1;             /* Nice spacing if title wraps */
+  text-align: left;             /* Align left, like a typical post */
+  word-break: break-word;       /* Break long titles */
 }

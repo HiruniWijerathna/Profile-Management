@@ -33,65 +33,66 @@ function AllImages() {
 
   return (
     <div>
-        <Nav/>
-    <div className="page">
-      <h2 className="page-title">All Uploaded Images</h2>
+      <Nav/>
+      <div className="page">
+        <h2 className="page-title">All Uploaded Images</h2>
 
-      {loading ? (
-        <p className="status-text">Loading images...</p>
-      ) : allImages.length === 0 ? (
-        <p className="status-text">No images uploaded yet.</p>
-      ) : (
-        <div className="insta-grid">
-          {allImages.map((data) => (
-            <div className="insta-card" key={data._id}>
-              
-              {/* Header */}
-              <div className="insta-header">
-                <img
-                  className="insta-avatar"
-                  src={
-                    data.profilePhoto
-                      ? `http://localhost:5000/uploads/${data.profilePhoto}`
-                      : "https://i.pravatar.cc/150"
-                  }
-                  alt="profile"
-                />
-                <span className="insta-username">
-                  {data.firstname || "Unknown"} {data.lastname || ""}
-                </span>
-              </div>
-
-              {/* Image */}
-              <img
-                className="insta-image"
-                src={`http://localhost:5000/uploads/${data.image}`}
-                alt="Uploaded"
-              />
-
-              {/* Footer */}
-              <div className="insta-footer">
-                <div className="insta-actions">
-                  <FaHeart
-                    className={`like-btn ${
-                      likedPosts[data._id] ? "liked" : ""
-                    }`}
-                    onClick={() => toggleLike(data._id)}
+        {loading ? (
+          <p className="status-text">Loading images...</p>
+        ) : allImages.length === 0 ? (
+          <p className="status-text">No images uploaded yet.</p>
+        ) : (
+          <div className="insta-grid">
+            {allImages.map((data) => (
+              <div className="insta-card" key={data._id}>
+                
+                {/* Header */}
+                <div className="insta-header">
+                  <img
+                    className="insta-avatar"
+                    src={
+                      data.profilePhoto
+                        ? `http://localhost:5000/uploads/${data.profilePhoto}`
+                        : "https://i.pravatar.cc/150"
+                    }
+                    alt="profile"
                   />
-                  <FaRegComment />
-                  <FaPaperPlane />
+                  <span className="insta-username">
+                    {data.firstname || "Unknown"} {data.lastname || ""}
+                  </span>
                 </div>
 
-                <p className="insta-caption">
-                  <strong>{data.firstname || "User"}</strong> shared a photo
-                </p>
-              </div>
+                {/* Image Title */}
+                {data.title && <p className="insta-title">{data.title}</p>}
 
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+                {/* Image */}
+                <img
+                  className="insta-image"
+                  src={`http://localhost:5000/uploads/${data.image}`}
+                  alt={data.title || "Uploaded photo"}
+                />
+
+                {/* Footer */}
+                <div className="insta-footer">
+                  <div className="insta-actions">
+                    <FaHeart
+                      className={`like-btn ${likedPosts[data._id] ? "liked" : ""}`}
+                      onClick={() => toggleLike(data._id)}
+                    />
+                    <FaRegComment />
+                    <FaPaperPlane />
+                  </div>
+
+                  <p className="insta-caption">
+                    <strong>{data.firstname || "User"}</strong> shared a photo
+                  </p>
+                </div>
+
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

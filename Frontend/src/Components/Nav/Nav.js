@@ -28,6 +28,9 @@ function Nav() {
               <li>
                 <Link to="/Profile" className="profile">Create Profile</Link>
               </li>
+              <li>
+                <Link to="/imageuplode" className="profile">Uplode Image</Link>
+              </li>
              </ul>
           </li>
 

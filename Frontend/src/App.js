@@ -12,6 +12,8 @@ import Login from './Components/Login/Login'
 import MyProfile from './Components/MyProfile/MyProfile'
 import View from './Components/View/View'
 import Start from './Components/Start/Start'
+import ImageUplode from './Components/ImageUplode/ImageUplode'
+import AllImages from './Components/AllImages/AllImages'
 
 function App() {
   return (
@@ -29,10 +31,13 @@ function App() {
         <Route path="/settings/:id" element={<UpdateProfile/>} />
         <Route path="/myprofile" element={<MyProfile/>}/>
         <Route path="/view/:id" element={<View />} />
+        <Route path="/imageuplode" element={<ImageUplode />} />
+          <Route path="/all-images" element={<AllImages />} />
 
         <Route path="/mainhero" element={<Hero />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+
 
       </Routes>
     </div>

@@ -14,6 +14,7 @@ import View from './Components/View/View'
 import Start from './Components/Start/Start'
 import ImageUplode from './Components/ImageUplode/ImageUplode'
 import AllImages from './Components/AllImages/AllImages'
+import SearchImages from './Components/SearchImages/SearchImages'
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
         <Route path="/view/:id" element={<View />} />
         <Route path="/imageuplode" element={<ImageUplode />} />
           <Route path="/all-images" element={<AllImages />} />
+          <Route path="/search-images" element={<SearchImages />} />
+
 
         <Route path="/mainhero" element={<Hero />} />
         <Route path="/register" element={<Register />} />

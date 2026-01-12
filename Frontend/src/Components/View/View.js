@@ -13,7 +13,7 @@ function View() {
     phone: '',
   });
 
-  const [profilePhoto, setProfilePhoto] = useState(null); // For current profile photo
+  const [profilePhoto, setProfilePhoto] = useState(null);
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -35,36 +35,12 @@ function View() {
     fetchHandler();
   }, [id]);
 
-  const handleChange = (e) => {
-    setInput((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  // We keep sendRequest for form submission if you want to edit from here
-  const sendRequest = async () => {
-    await axios.put(`http://localhost:5000/users/${id}`, {
-      firstname: input.firstname,
-      lastname: input.lastname,
-      email: input.email,
-      address: input.address,
-      phone: Number(input.phone),
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await sendRequest();
-    navigate('/myprofile');
-  };
-
   return (
     <div>
       <Nav />
 
       <div className="view-profile-page">
-        <form className="viewprofile-form" onSubmit={handleSubmit}>
+        <div className="viewprofile-form">
 
           {/* Back button */}
           <button
@@ -81,65 +57,33 @@ function View() {
               <img src={profilePhoto} alt="Profile" />
             ) : (
               <div className="photo-placeholder">
-                {input.firstname ? input.firstname.charAt(0) : "U"}
+                {input.firstname ? input.firstname.charAt(0) : 'U'}
               </div>
             )}
           </div>
 
-          <div>
-            <label>First Name</label>
-            <input
-              type="text"
-              name="firstname"
-              value={input.firstname}
-              onChange={handleChange}
-              required
-            />
+          {/* ✅ FULL NAME (COMBINED) */}
+          <h2 className="full-name">
+            {input.firstname} {input.lastname}
+          </h2>
+
+          {/* Details */}
+          <div className="info-row">
+            <span>Email</span>
+            <p>{input.email}</p>
           </div>
 
-          <div>
-            <label>Last Name</label>
-            <input
-              type="text"
-              name="lastname"
-              value={input.lastname}
-              onChange={handleChange}
-              required
-            />
+          <div className="info-row">
+            <span>Address</span>
+            <p>{input.address}</p>
           </div>
 
-          <div>
-            <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              value={input.email}
-              onChange={handleChange}
-              required
-            />
+          <div className="info-row">
+            <span>Phone</span>
+            <p>{input.phone}</p>
           </div>
 
-          <div>
-            <label>Address</label>
-            <input
-              type="text"
-              name="address"
-              value={input.address}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div>
-            <label>Phone</label>
-            <input
-              type="number"
-              name="phone"
-              value={input.phone}
-              onChange={handleChange}
-            />
-          </div>
-
-        </form>
+        </div>
       </div>
     </div>
   );

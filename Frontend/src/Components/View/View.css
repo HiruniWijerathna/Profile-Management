@@ -20,16 +20,7 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* Profile image */
-.viewprofile-form::before {
-  content: "";
-  display: block;
-  width: 90px;
-  height: 90px;
-  margin: 25px auto 20px;
-  border-radius: 50%;
-  background: url("https://i.pravatar.cc/150") center/cover no-repeat;
-}
+
 
 /* Back button ABOVE image */
 .top-back {
@@ -98,6 +89,30 @@
   transform: translateY(-1px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
+
+.view-profile-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 2px solid #4f46e5;
+}
+
+.photo-placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
 
 /* Mobile */
 @media (max-width: 768px) {

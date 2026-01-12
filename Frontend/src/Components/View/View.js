@@ -5,41 +5,52 @@ import { useParams, useNavigate } from 'react-router-dom';
 import './View.css';
 
 function View() {
-
   const [input, setInput] = useState({
     firstname: '',
     lastname: '',
     email: '',
     address: '',
-    phone: ''
+    phone: '',
   });
+
+  const [profilePhoto, setProfilePhoto] = useState(null); // For current profile photo
 
   const navigate = useNavigate();
   const { id } = useParams();
 
   useEffect(() => {
     const fetchHandler = async () => {
-      const res = await axios.get(`http://localhost:5000/users/${id}`);
-      setInput(res.data.users);
+      try {
+        const res = await axios.get(`http://localhost:5000/users/${id}`);
+        const user = res.data.users;
+        setInput(user);
+
+        if (user.profilePhoto) {
+          setProfilePhoto(`http://localhost:5000/uploads/${user.profilePhoto}`);
+        }
+      } catch (err) {
+        console.error(err);
+      }
     };
     fetchHandler();
   }, [id]);
 
+  const handleChange = (e) => {
+    setInput((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  // We keep sendRequest for form submission if you want to edit from here
   const sendRequest = async () => {
     await axios.put(`http://localhost:5000/users/${id}`, {
       firstname: input.firstname,
       lastname: input.lastname,
       email: input.email,
       address: input.address,
-      phone: Number(input.phone)
+      phone: Number(input.phone),
     });
-  };
-
-  const handleChange = (e) => {
-    setInput((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
   };
 
   const handleSubmit = async (e) => {
@@ -55,7 +66,7 @@ function View() {
       <div className="view-profile-page">
         <form className="viewprofile-form" onSubmit={handleSubmit}>
 
-          {/* Back button ABOVE profile image */}
+          {/* Back button */}
           <button
             type="button"
             className="back-btn top-back"
@@ -63,6 +74,17 @@ function View() {
           >
             ← Back
           </button>
+
+          {/* Profile Photo */}
+          <div className="view-profile-photo">
+            {profilePhoto ? (
+              <img src={profilePhoto} alt="Profile" />
+            ) : (
+              <div className="photo-placeholder">
+                {input.firstname ? input.firstname.charAt(0) : "U"}
+              </div>
+            )}
+          </div>
 
           <div>
             <label>First Name</label>
@@ -117,7 +139,6 @@ function View() {
             />
           </div>
 
-        
         </form>
       </div>
     </div>

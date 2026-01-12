@@ -125,6 +125,16 @@
   margin-top: 100px;
 }
 
+.mprofile-avatar-img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4f46e5;
+  margin-bottom: 10px;
+}
+
+
 /* Animation */
 @keyframes fadeIn {
   from {

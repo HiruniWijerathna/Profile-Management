@@ -1,22 +1,30 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const user = require("../Model/userModel");
 const userController = require("../Controllers/userController");
+const upload = require("../middleware/upload");
 
-//GET all users
+// GET all users
 router.get("/", userController.getAllUsers);
 
-//add user
-router.post("/", userController.addUser);
+// ADD user (WITH profile photo)
+router.post(
+  "/",
+  upload.single("profilePhoto"),
+  userController.addUser
+);
 
-//get user by ID
+// GET user by ID
 router.get("/:id", userController.getById);
 
-//update user by ID
-router.put("/:id", userController.updateUser);
+// UPDATE user (WITH / WITHOUT photo)
+router.put(
+  "/:id",
+  upload.single("profilePhoto"),
+  userController.updateUser
+);
 
-//delete user by ID
+// DELETE user
 router.delete("/:id", userController.deleteUser);
 
 module.exports = router;

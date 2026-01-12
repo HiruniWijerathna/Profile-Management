@@ -3,7 +3,6 @@ import Nav from '../Nav/Nav';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import './UpdateProfile.css';
-import profileImg from '../../assets/uprofile.jpg';
 
 function UpdateProfile() {
   const [input, setInput] = useState({
@@ -11,17 +10,25 @@ function UpdateProfile() {
     lastname: '',
     email: '',
     address: '',
-    phone: ''
+    phone: '',
   });
+
+  const [profilePhoto, setProfilePhoto] = useState(null); // ⭐ NEW
+  const [currentPhoto, setCurrentPhoto] = useState(null); // ⭐ SHOW CURRENT PHOTO
 
   const navigate = useNavigate();
   const { id } = useParams();
 
+  // Fetch user data
   useEffect(() => {
     const fetchHandler = async () => {
       try {
         const res = await axios.get(`http://localhost:5000/users/${id}`);
         setInput(res.data.users);
+
+        if (res.data.users.profilePhoto) {
+          setCurrentPhoto(`http://localhost:5000/uploads/${res.data.users.profilePhoto}`);
+        }
       } catch (err) {
         console.error(err);
       }
@@ -29,27 +36,43 @@ function UpdateProfile() {
     fetchHandler();
   }, [id]);
 
-  const sendRequest = async () => {
-    await axios.put(`http://localhost:5000/users/${id}`, {
-      firstname: String(input.firstname),
-      lastname: String(input.lastname),
-      email: String(input.email),
-      address: String(input.address),
-      phone: Number(input.phone)
-    });
-  };
-
+  // Handle text input changes
   const handleChange = (e) => {
     setInput((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
+  // Handle profile photo change
+  const handlePhotoChange = (e) => {
+    setProfilePhoto(e.target.files[0]);
+  };
+
+  // Submit form
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await sendRequest();
-    navigate('/myprofile');
+
+    try {
+      const formData = new FormData();
+      formData.append('firstname', input.firstname);
+      formData.append('lastname', input.lastname);
+      formData.append('email', input.email);
+      formData.append('address', input.address);
+      formData.append('phone', input.phone);
+      if (profilePhoto) {
+        formData.append('profilePhoto', profilePhoto); // ⭐ new photo
+      }
+
+      await axios.put(`http://localhost:5000/users/${id}`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+
+      navigate('/myprofile');
+    } catch (err) {
+      console.error(err);
+      alert('Failed to update profile.');
+    }
   };
 
   return (
@@ -59,10 +82,29 @@ function UpdateProfile() {
       <div className="update-profile-page">
         <div className="uprofile-card">
 
-          {/* Left Image */}
-          <div className="uprofile-image">
-            <img src={profileImg} alt="Profile Illustration" />
-          </div>
+    <div className="uprofile-image">
+  {profilePhoto ? (
+    <img src={URL.createObjectURL(profilePhoto)} alt="New Profile" />
+  ) : currentPhoto ? (
+    <img src={currentPhoto} alt="Current Profile" />
+  ) : (
+    <div className="photo-placeholderr">No Photo</div>
+  )}
+
+  {/* Hidden file input */}
+  <input
+    type="file"
+    id="upload-photo"
+    accept="image/*"
+    onChange={handlePhotoChange}
+    hidden
+  />
+
+  {/* Custom button */}
+  <label htmlFor="upload-photo" className="upload-btn">
+    Change Photo
+  </label>
+</div>
 
           {/* Right Form */}
           <form className="uprofile-form" onSubmit={handleSubmit}>

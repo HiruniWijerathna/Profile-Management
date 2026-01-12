@@ -13,16 +13,7 @@
   transform: translateY(-5px);
 }
 
-/* Avatar */
-.user::before {
-  content: "";
-  display: block;
-  width: 90px;
-  height: 90px;
-  margin: 0 auto 12px;
-  border-radius: 50%;
-  background: #e5e7eb url("https://i.pravatar.cc/150") center/cover no-repeat;
-}
+
 
 /* Name */
 .name {
@@ -105,3 +96,28 @@
 .delete {
   display: none;
 }
+
+.user-avatar,
+.user-avatar-fallback {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #4f46e5;
+
+  /* CENTERING */
+  display: block;
+  margin: 0 auto 12px auto; /* center + space below */
+}
+
+/* fallback specific styles */
+.user-avatar-fallback {
+  background-color: #ccc;
+  color: #fff;
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

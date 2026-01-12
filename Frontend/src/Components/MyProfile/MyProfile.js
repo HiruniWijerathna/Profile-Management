@@ -8,7 +8,6 @@ function MyProfile() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  // Delete profile with confirmation
   const deleteHandler = async () => {
     const confirmDelete = window.confirm(
       'Are you sure you want to delete your account?\nThis action cannot be undone.'
@@ -26,7 +25,6 @@ function MyProfile() {
     }
   };
 
-  // Fetch latest profile
   useEffect(() => {
     const fetchLatestProfile = async () => {
       try {
@@ -46,6 +44,10 @@ function MyProfile() {
 
   if (!user) return <p className="loading-text">Loading profile...</p>;
 
+  const imageUrl = user.profilePhoto
+    ? `http://localhost:5000/uploads/${user.profilePhoto}`
+    : null;
+
   return (
     <>
       <Nav />
@@ -54,9 +56,19 @@ function MyProfile() {
         <div className="mprofile-card">
 
           <div className="mprofile-header">
-            <div className="mprofile-avatar">
-              {user.firstname.charAt(0)}
-            </div>
+            {/* PROFILE IMAGE */}
+            {imageUrl ? (
+              <img
+                src={imageUrl}
+                alt="Profile"
+                className="mprofile-avatar-img"
+              />
+            ) : (
+              <div className="mprofile-avatar">
+                {user.firstname.charAt(0)}
+              </div>
+            )}
+
             <h2>{user.firstname} {user.lastname}</h2>
             <span className="mprofile-email">{user.email}</span>
           </div>

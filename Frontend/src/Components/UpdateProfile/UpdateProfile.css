@@ -18,19 +18,7 @@
   overflow: hidden;
 }
 
-/* Left Image */
-.uprofile-image {
-  width: 50%;
-  background-color: #f6eaff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.uprofile-image img {
-  width: 80%;
-  height: auto;
-}
 
 /* Right Form */
 .uprofile-form {
@@ -86,6 +74,73 @@
   padding: 10px 45px;
 }
 
-.uprofile-form button:hover {
-  background-color: #a526cf;
+
+
+/* Left Image */
+.uprofile-image {
+  width: 50%;
+  background-color: #f6eaff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+   gap: 12px;
 }
+
+/* Profile image */
+.uprofile-image img {
+  width: 300px;
+  height: 300px;
+  border-radius: 12px;  
+  object-fit: cover;
+  border: 3px solid #6421ab;
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.25);
+  background-color: #f3f4f6;
+}
+/* Optional hover effect */
+.uprofile-image img:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease;
+}
+
+/* Upload button */
+.upload-btn {
+  padding: 10px 20px;
+  background-color: #6421ab;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 12px rgba(100, 33, 171, 0.3);
+}
+
+/* Hover effect */
+.upload-btn:hover {
+  background-color: #4b1686;
+  transform: translateY(-2px);
+}
+
+/* Active click */
+.upload-btn:active {
+  transform: scale(0.97);
+}
+
+.photo-placeholderr {
+  width: 300px;
+  height: 300px;
+  border-radius: 12px;              /* use 50% if you want circle */
+  background-color: #f3f4f6;
+  color: #e2d1e1;
+  font-size: 16px;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 6px 18px rgba(100, 33, 171, 0.15);
+  transition: 0.3s ease;
+}
+

@@ -44,6 +44,8 @@ function App() {
         <Route path="/all-images/:id" element={<UploadImageEdit />} />
         <Route path="/sendpdf" element={<SendPdf />} />
         <Route path="/all-pdf" element={<AllPdf />} />
+        <Route path="/view-image/:email" element={<ViewImage />} />
+
 
 
 

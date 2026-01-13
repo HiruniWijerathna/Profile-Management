@@ -13,8 +13,6 @@
   gap: 30px;
   width: 100%;
   max-width: 1200px;
-
- 
 }
 
 /* ------------------- LEFT SIDEBAR ------------------- */
@@ -108,8 +106,39 @@
   background: #d32f2f;
 }
 
-/* ------------------- RIGHT: UPLOADED IMAGES ------------------- */
-.uploaded-images {
+/* ------------------- TAB BUTTONS ------------------- */
+.tab-buttons{
+  display: flex;
+  gap: 7px;
+  margin: 15px 0;
+  width: 100%;
+  
+}
+
+.tab-btns {
+  flex: 1;
+  padding: 10px 0;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+
+}
+
+.tab-btns.active {
+  background-color: #3729b3;
+  color: #fff;
+  border-color: #370b83;
+}
+
+.tab-btns:hover {
+  background-color: #e0e0e0;
+}
+
+/* ------------------- RIGHT: CONTENT ------------------- */
+.uploaded-content {
   flex: 1;
   background: #fff;
   padding: 25px;
@@ -117,12 +146,7 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-.uploaded-images h3 {
-  margin-bottom: 20px;
-  font-size: 20px;
-  font-weight: 600;
-}
-
+/* ------------------- IMAGES ------------------- */
 .image-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -163,20 +187,73 @@
   padding: 10px;
 }
 
-.icon {
-  font-size: 18px;
-  cursor: pointer;
-  color: #555;
-  transition: all 0.2s ease;
+/* ------------------- PDF CARDS ------------------- */
+.pdf-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 per row */
+  gap: 20px;
+  padding: 10px 0;
 }
 
-.icon:hover {
-  transform: scale(1.2);
-  color: #1877f2;
+.pdf-card-horizontal {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pdf-card-horizontal:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.pdf-folder {
+  width: 70px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.pdf-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.pdf-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.pdf-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.edit-icon {
+  font-size: 20px;
+  color: #2563eb;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit-icon:hover {
+  color: #1d4ed8;
+}
+
+.delete-icon {
+  font-size: 20px;
+  color: #dc2626;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .delete-icon:hover {
-  color: #f44336;
+  color: #b91c1c;
 }
 
 /* ------------------- LOADING & STATUS TEXT ------------------- */
@@ -186,4 +263,42 @@
   color: #777;
   font-size: 16px;
   padding: 20px 0;
+}
+
+/* ------------------- RESPONSIVE ------------------- */
+@media (max-width: 992px) {
+  .profile-images-layout {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .profile-sidebar {
+    padding: 80px 20px;
+  }
+
+  .tab-buttons {
+    flex-direction: column;
+  }
+
+  .tab-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .pdf-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-sidebar {
+    padding: 60px 15px;
+  }
+
+  .mprofile-wrapper {
+    padding: 60px 15px;
+  }
 }

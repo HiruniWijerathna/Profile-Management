@@ -44,12 +44,28 @@
   height: 42px;
   border-radius: 50%;
   object-fit: cover;
+  display: block; /* ensures no extra spacing from the link */
+  cursor: pointer; /* optional: pointer cursor on hover */
 }
 
+/* Profile name */
 .profile-name {
   font-size: 16px;
   font-weight: 700;
   color: #1f2937;
+  text-decoration: none; /* ✅ remove underline */
+  cursor: pointer;        /* pointer on hover */
+}
+
+/* Ensure hover doesn't add underline */
+.profile-name:hover {
+  text-decoration: none;
+  color: #7f1a6e; /* optional hover color */
+}
+
+/* If the link wraps the profile image */
+.profile-link {
+  text-decoration: none; /* remove underline from link */
 }
 
 /* Divider */

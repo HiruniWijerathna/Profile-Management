@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaHeart, FaRegComment, FaPaperPlane } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import "./AllImages.css";
 import Nav from "../Nav/Nav";
 
@@ -34,13 +35,10 @@ function AllImages() {
     }));
   };
 
-  // 🔍 Filter by name OR title
+  // Filter images by name
   const filteredImages = allImages.filter((data) => {
     const fullName = `${data.firstname || ""} ${data.lastname || ""}`.toLowerCase();
-   
-    return (
-      fullName.includes(searchTerm.toLowerCase()) 
-    );
+    return fullName.includes(searchTerm.toLowerCase());
   });
 
   return (
@@ -50,24 +48,23 @@ function AllImages() {
       <div className="page">
         <h2 className="page-title">All Uploaded Images</h2>
 
-       {/* 🔍 SEARCH BAR */}
-<div className="search-bar">
-  <input
-    type="text"
-    placeholder="Search by name or title"
-    value={searchTerm}
-    onChange={(e) => setSearchTerm(e.target.value)}
-  />
-  <button
-    onClick={() => {
-      setSearchTerm(""); // Clear the search input
-      getImages();       // Optionally re-fetch all images
-    }}
-  >
-    Reset
-  </button>
-</div>
-
+        {/* SEARCH BAR */}
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Search by name"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <button
+            onClick={() => {
+              setSearchTerm(""); // Clear search input
+              getImages();       // Re-fetch all images
+            }}
+          >
+            Reset
+          </button>
+        </div>
 
         {loading ? (
           <p className="status-text">Loading images...</p>
@@ -77,21 +74,27 @@ function AllImages() {
           <div className="insta-grid">
             {filteredImages.map((data) => (
               <div className="insta-card" key={data._id}>
-                
+
                 {/* Header */}
                 <div className="insta-header">
-                  <img
-                    className="insta-avatar"
-                    src={
-                      data.profilePhoto
-                        ? `http://localhost:5000/uploads/${data.profilePhoto}`
-                        : "https://i.pravatar.cc/150"
-                    }
-                    alt="profile"
-                  />
-                  <span className="insta-username">
+                  
+                  {/* Profile photo clickable */}
+                  <Link to={`/view-images/${data.email}`} className="images-btn">
+                    <img
+                      className="insta-avatar"
+                      src={
+                        data.profilePhoto
+                          ? `http://localhost:5000/uploads/${data.profilePhoto}`
+                          : "https://i.pravatar.cc/150"
+                      }
+                      alt="profile"
+                    />
+                  </Link>
+
+                  {/* Username clickable */}
+                  <Link to={`/view-images/${data.email}`} className="insta-username">
                     {data.firstname || "Unknown"} {data.lastname || ""}
-                  </span>
+                  </Link>
                 </div>
 
                 {/* Image Title */}
@@ -108,9 +111,7 @@ function AllImages() {
                 <div className="insta-footer">
                   <div className="insta-actions">
                     <FaHeart
-                      className={`like-btn ${
-                        likedPosts[data._id] ? "liked" : ""
-                      }`}
+                      className={`like-btn ${likedPosts[data._id] ? "liked" : ""}`}
                       onClick={() => toggleLike(data._id)}
                     />
                     <FaRegComment />

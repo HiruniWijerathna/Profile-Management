@@ -5,8 +5,7 @@ import {
   FaHeart,
   FaRegHeart,
   FaRegCommentDots,
-  FaShare,
-  FaFilePdf
+  FaShare
 } from "react-icons/fa";
 import Nav from "../Nav/Nav";
 import "./ViewImage.css";
@@ -14,16 +13,21 @@ import "./ViewImage.css";
 function ViewImage() {
   const [user, setUser] = useState(null);
   const [images, setImages] = useState([]);
-  const [pdfs, setPdfs] = useState([]); // ✅ New state for PDFs
+  const [pdfs, setPdfs] = useState([]);
   const [likedImages, setLikedImages] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [activeTab, setActiveTab] = useState("images"); // ✅ Images or PDFs
 
   const { userEmail } = useParams();
 
   /* 🔥 SYSTEM AUTO COVER PHOTO */
   const coverPhotos = useMemo(
-    () => ["/cover1.jpg", "/cover2.jpg", "/cover3.jpg", "/cover4.jpg", "/cover5.jpg", "/cover6.jpg", "/cover7.jpg", "/cover8.jpg", "/cover9.jpg", "/cover10.jpg"],
+    () => [
+      "/cover1.jpg", "/cover2.jpg", "/cover3.jpg", "/cover4.jpg",
+      "/cover5.jpg", "/cover6.jpg", "/cover7.jpg", "/cover8.jpg",
+      "/cover9.jpg", "/cover10.jpg"
+    ],
     []
   );
 
@@ -61,7 +65,7 @@ function ViewImage() {
         setImages(userImages);
 
         // ✅ Fetch PDFs
-        const pdfRes = await axios.get("http://localhost:5000/getPDF"); // replace with your PDF route
+        const pdfRes = await axios.get("http://localhost:5000/getPDF");
         const allPdfs = pdfRes.data.data || [];
         const userPdfs = allPdfs.filter(
           (pdf) =>
@@ -125,81 +129,87 @@ function ViewImage() {
                 <p>{user.address}</p>
               </div>
 
-              {/* IMAGES */}
-              <h3 className="section-title">Uploaded Images</h3>
-              <div className="image-grid">
-                {images.map((img, index) => (
-                  <div key={index} className="image-card">
-                    <h4 className="image-title">{img.title || "Untitled"}</h4>
-                    <img
-                      src={`http://localhost:5000/uploads/${img.image}`}
-                      alt="uploaded"
-                    />
-                    <div className="image-actions">
-                      <span className="action-icon" onClick={() => toggleLike(index)}>
-                        {likedImages[index] ? <FaHeart className="liked" /> : <FaRegHeart />}
-                      </span>
-                      <span className="action-icon"><FaRegCommentDots /></span>
-                      <span className="action-icon"><FaShare /></span>
-                    </div>
-                  </div>
-                ))}
+              {/* ✅ TAB BUTTONS */}
+              <div className="tab-buttons">
+                <button
+                  className={`tab-btn ${activeTab === "images" ? "active" : ""}`}
+                  onClick={() => setActiveTab("images")}
+                >
+                  Uploaded Images
+                </button>
+                <button
+                  className={`tab-btn ${activeTab === "pdfs" ? "active" : ""}`}
+                  onClick={() => setActiveTab("pdfs")}
+                >
+                  Uploaded PDFs
+                </button>
               </div>
 
-              {/* PDFs */}
-         
-<h3 className="section-title">Uploaded PDFs</h3>
+              {/* ✅ IMAGES SECTION */}
+              {activeTab === "images" && (
+                <>
+                  <h3 className="section-title">Uploaded Images</h3>
+                  <div className="image-grid">
+                    {images.map((img, index) => (
+                      <div key={index} className="image-card">
+                        <h4 className="image-title">{img.title || "Untitled"}</h4>
+                        <img
+                          src={`http://localhost:5000/uploads/${img.image}`}
+                          alt="uploaded"
+                        />
+                        <div className="image-actions">
+                          <span className="action-icon" onClick={() => toggleLike(index)}>
+                            {likedImages[index] ? <FaHeart className="liked" /> : <FaRegHeart />}
+                          </span>
+                          <span className="action-icon"><FaRegCommentDots /></span>
+                          <span className="action-icon"><FaShare /></span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
 
-<div className="pdf-list">
-  {pdfs.map((pdf, index) => (
-    <div key={index} className="pdf-image-card">
-
-      {/* FILE IMAGE PREVIEW */}
-      <img
-        src="/pdf.jpg"
-        alt="PDF File"
-        className="pdf-file-img"
-      />
-
-      {/* TITLE */}
-      <div className="pdf-title-box">
-        <strong>Title:</strong> {pdf.title || "Untitled"}
-      </div>
-
-
-      {/* Buttons */}
-                <div className="pdf-buttons">
-                  <a
-                    href={`http://localhost:5000/files/${pdf.pdfFile}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="open-btn"
-                  >
-                    Open PDF
-                  </a>
-
-                  <a
-                    href={`http://localhost:5000/files/${pdf.pdfFile}`}
-                    download
-                    className="download-btn"
-                  >
-                    Download PDF
-                  </a>
-                </div>
-
-      {/* SOCIAL ICONS */}
-      <div className="pdf-social">
-        <span className="action-icon" onClick={() => toggleLike(`pdf-${index}`)}>
-          {likedImages[`pdf-${index}`] ? <FaHeart className="liked" /> : <FaRegHeart />}
-        </span>
-        <span className="action-icon"><FaRegCommentDots /></span>
-        <span className="action-icon"><FaShare /></span>
-      </div>
-
-    </div>
-  ))}
-</div>
-
+              {/* ✅ PDFs SECTION */}
+              {activeTab === "pdfs" && (
+                <>
+                  <h3 className="section-title">Uploaded PDFs</h3>
+                  <div className="pdf-list">
+                    {pdfs.map((pdf, index) => (
+                      <div key={index} className="pdf-image-card">
+                        <img src="/pdf.jpg" alt="PDF File" className="pdf-file-img" />
+                        <div className="pdf-title-box">
+                          <strong>Title:</strong> {pdf.title || "Untitled"}
+                        </div>
+                        <div className="pdf-buttons">
+                          <a
+                            href={`http://localhost:5000/files/${pdf.pdfFile}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="open-btn"
+                          >
+                            Open PDF
+                          </a>
+                          <a
+                            href={`http://localhost:5000/files/${pdf.pdfFile}`}
+                            download
+                            className="download-btn"
+                          >
+                            Download PDF
+                          </a>
+                        </div>
+                        <div className="pdf-social">
+                          <span className="action-icon" onClick={() => toggleLike(`pdf-${index}`)}>
+                            {likedImages[`pdf-${index}`] ? <FaHeart className="liked" /> : <FaRegHeart />}
+                          </span>
+                          <span className="action-icon"><FaRegCommentDots /></span>
+                          <span className="action-icon"><FaShare /></span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
             </>
           )}
         </div>

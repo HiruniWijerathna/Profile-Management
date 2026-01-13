@@ -34,6 +34,7 @@
 }
 
 /* Header */
+/* Header container for avatar + username */
 .insta-header {
   display: flex;
   align-items: center;
@@ -41,18 +42,49 @@
   padding: 14px;
 }
 
+/* Profile photo */
 .insta-avatar {
   width: 42px;
   height: 42px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #7f1a6e;
+  border: 2px solid #fefefe; /* optional border */
+  cursor: pointer;
+  display: block; /* ensures link doesn't add extra spacing */
 }
 
+/* Username text */
 .insta-username {
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
+  text-decoration: none; /* remove underline */
+  color: inherit;        /* keep text color consistent */
+  cursor: pointer;
 }
+
+/* Remove underline on hover too */
+.insta-username:hover {
+  text-decoration: none;
+}
+
+/* If the avatar is inside a Link */
+.images-btn {
+  text-decoration: none; /* remove underline from profile photo link */
+  display: inline-block;
+}
+
+/* Optional: hover effect for avatar */
+.images-btn:hover .insta-avatar {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Optional: hover effect for username */
+.insta-username:hover {
+  color: #7f1a6e; /* change color on hover */
+  transition: color 0.2s;
+}
+
 
 /* Image */
 .insta-image {

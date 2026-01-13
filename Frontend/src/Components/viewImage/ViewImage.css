@@ -1,6 +1,6 @@
 /* PAGE */
 .view-images-page {
-  background: #f0f2f5;
+  background: #faeefd;
   min-height: 100vh;
   padding-top: 20px;
 }
@@ -8,7 +8,7 @@
 .view-images-container {
   max-width: 1100px;
   margin: auto;
-  background: #fff;
+  background: #fdf5ff;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -46,12 +46,12 @@
 /* USER INFO */
 .user-info {
   position: relative;
-  margin-top: -80px;
-  padding: 20px;
+  margin-top: -100px;
+  padding: 10px;
   text-align: center;
-  background: #fff;
+  background: #ffffff;
   border-radius: 10px 10px 0 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #dddddd;
   z-index: 2;
 }
 
@@ -282,4 +282,37 @@
 
 .liked {
   color: #e11d48;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  gap: 20px; /* space between buttons */
+  margin: 20px 0;
+}
+
+.tab-btn {
+  padding: 8px 40px; /* make buttons slightly bigger */
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.tab-btn:hover {
+  background: #f0f0f0;
+}
+
+.tab-btn.active {
+  background: #581577;
+  color: white;
+  border-color: #9b35c7;
 }

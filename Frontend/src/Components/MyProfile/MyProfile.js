@@ -8,10 +8,13 @@ import './MyProfile.css';
 function MyProfile() {
   const [user, setUser] = useState(null);
   const [images, setImages] = useState([]);
+  const [pdfs, setPdfs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [activeTab, setActiveTab] = useState('images'); // 'images' or 'pdfs'
 
   const navigate = useNavigate();
+  const pdfThumbnail = '/pdf.jpg'; // public/pdf.jpg
 
   // ------------------- PROFILE HANDLERS -------------------
   const deleteHandler = async () => {
@@ -48,9 +51,26 @@ function MyProfile() {
     navigate(`/all-images/${imgId}`);
   };
 
-  // ------------------- FETCH USER & IMAGES -------------------
+  // ------------------- PDF HANDLERS -------------------
+  const deletePdf = async (pdfId) => {
+    if (!window.confirm('Delete this PDF?')) return;
+    try {
+      await axios.delete(`http://localhost:5000/pdfs/${pdfId}`);
+      setPdfs((prev) => prev.filter((pdf) => pdf._id !== pdfId));
+      alert('PDF deleted successfully!');
+    } catch (err) {
+      console.error(err);
+      alert('Failed to delete PDF');
+    }
+  };
+
+  const editPdf = (pdfId) => {
+    navigate(`/edit-pdf/${pdfId}`);
+  };
+
+  // ------------------- FETCH USER, IMAGES & PDFS -------------------
   useEffect(() => {
-    const fetchProfileAndImages = async () => {
+    const fetchProfileData = async () => {
       try {
         setLoading(true);
 
@@ -62,33 +82,37 @@ function MyProfile() {
           return;
         }
 
-        // For demo: latest user
         const latestUser = users[users.length - 1];
         setUser(latestUser);
 
         // Fetch all images
         const imgRes = await axios.get('http://localhost:5000/getImage');
         const allImages = imgRes.data.data || [];
-
-        // Filter images uploaded by this user
         const userImages = allImages.filter(
-          (img) =>
-            img.email &&
-            latestUser.email &&
-            img.email.toLowerCase() === latestUser.email.toLowerCase()
+          (img) => img.email && latestUser.email && img.email.toLowerCase() === latestUser.email.toLowerCase()
         );
-
         setImages(userImages);
-        if (userImages.length === 0) setError('No images uploaded by this user');
+
+        // Fetch all PDFs
+        const pdfRes = await axios.get('http://localhost:5000/getPdf');
+        const allPdfs = pdfRes.data.data || [];
+        const userPdfs = allPdfs.filter(
+          (pdf) => pdf.email && latestUser.email && pdf.email.toLowerCase() === latestUser.email.toLowerCase()
+        );
+        setPdfs(userPdfs);
+
+        if (userImages.length === 0 && userPdfs.length === 0) {
+          setError('No uploads by this user');
+        }
       } catch (err) {
         console.error(err);
-        setError('Failed to fetch profile or images');
+        setError('Failed to fetch profile data');
       } finally {
         setLoading(false);
       }
     };
 
-    fetchProfileAndImages();
+    fetchProfileData();
   }, []);
 
   // ------------------- RENDER -------------------
@@ -125,40 +149,89 @@ function MyProfile() {
               <button onClick={editHandler} className="btn edit-btn">Edit Profile</button>
               <button onClick={deleteHandler} className="btn delete-btn">Delete Account</button>
             </div>
+
+            {/* ------------------- TOGGLE BUTTONS ------------------- */}
+            <div className="tab-buttons">
+              <button
+                className={`tab-btns ${activeTab === 'images' ? 'active' : ''}`}
+                onClick={() => setActiveTab('images')}
+              >
+                Uploaded Images
+              </button>
+              <button
+                className={`tab-btns ${activeTab === 'pdfs' ? 'active' : ''}`}
+                onClick={() => setActiveTab('pdfs')}
+              >
+                Uploaded PDFs
+              </button>
+            </div>
           </div>
 
-          {/* ------------------- RIGHT: UPLOADED IMAGES ------------------- */}
-          <div className="uploaded-images">
-            <h3>Uploaded Images</h3>
-            {images.length === 0 ? (
-              <p className="status-text">{error}</p>
-            ) : (
-              <div className="image-grid">
-                {images.map((img, index) => (
-                  <div key={img._id} className="image-card">
-                    <h4 className="image-title">{img.title || "Untitled"}</h4>
-                    <img
-                      src={`http://localhost:5000/uploads/${img.image}`}
-                      alt={img.title || `uploaded ${index + 1}`}
-                    />
-                    <div className="image-actions">
-                      {/* Edit Image */}
-                      <FaEdit
-                        className="icon edit-icon"
-                        title="Edit Image"
-                        onClick={() => editImage(img._id)}
-                      />
-
-                      {/* Delete Image */}
-                      <FaTrash
-                        className="icon delete-icon"
-                        title="Delete Image"
-                        onClick={() => deleteImage(img._id)}
-                      />
-                    </div>
+          {/* ------------------- RIGHT: CONTENT ------------------- */}
+          <div className="uploaded-content">
+            {activeTab === 'images' && (
+              <>
+                <h3>Uploaded Images</h3>
+                {images.length === 0 ? (
+                  <p className="status-text">{error}</p>
+                ) : (
+                  <div className="image-grid">
+                    {images.map((img, index) => (
+                      <div key={img._id} className="image-card">
+                        <h4 className="image-title">{img.title || "Untitled"}</h4>
+                        <img
+                          src={`http://localhost:5000/uploads/${img.image}`}
+                          alt={img.title || `uploaded ${index + 1}`}
+                        />
+                        <div className="image-actions">
+                          <FaEdit
+                            className="icon edit-icon"
+                            title="Edit Image"
+                            onClick={() => editImage(img._id)}
+                          />
+                          <FaTrash
+                            className="icon delete-icon"
+                            title="Delete Image"
+                            onClick={() => deleteImage(img._id)}
+                          />
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                )}
+              </>
+            )}
+
+            {activeTab === 'pdfs' && (
+              <>
+                <h3>Uploaded PDFs</h3>
+                {pdfs.length === 0 ? (
+                  <p className="status-text">No PDFs uploaded</p>
+                ) : (
+                  <div className="pdf-grid">
+                    {pdfs.map((pdf) => (
+                      <div key={pdf._id} className="pdf-card-horizontal">
+                        <img src={pdfThumbnail} alt="PDF" className="pdf-folder" />
+                        <div className="pdf-info">
+                          <p className="pdf-title">{pdf.title || "Untitled PDF"}</p>
+                          <div className="pdf-actions">
+                            <FaEdit
+                              className="icon edit-icon"
+                              title="Edit PDF"
+                              onClick={() => editPdf(pdf._id)}
+                            />
+                            <FaTrash
+                              className="icon delete-icon"
+                              title="Delete PDF"
+                              onClick={() => deletePdf(pdf._id)}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </>
             )}
           </div>
 

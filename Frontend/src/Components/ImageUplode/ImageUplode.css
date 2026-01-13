@@ -1,112 +1,101 @@
-/* Page background */
+/* Page wrapper */
 .upload-page {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #faedfe;
-  font-family: "Inter", sans-serif;
+  background: #fbedff;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Upload card */
 .upload-card {
-  width: 600px;
-  background:  hsl(302, 100%, 92%);
-  border-radius: 16px;
-  padding: 22px;
-  position: relative;
+  width: 100%;
+  max-width: 600px;
+  background: #ffffff;
+  padding: 35px 30px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 /* Title */
 .upload-card h2 {
-  margin: 0 0 16px;
-  font-size: 18px;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
   font-weight: 600;
-  color: #000000;
 }
 
 /* Form layout */
 .upload-card form {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
-/* Email input */
+/* Text & email inputs */
 .upload-input {
+  width: 100%;
   padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #ffd6fe;
-  outline: none;
-  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .upload-input:focus {
-  border-color: #e47aff;
-  box-shadow: 0 0 0 2px rgba(122, 130, 255, 0.2);
+  border-color: #6c63ff;
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.15);
+  outline: none;
 }
 
-/* File upload (drag area look) */
+/* File input */
 .upload-file {
-  width: 100%;
-  padding: 40px 12px;
-  border-radius: 14px;
-  border: 2px dashed #f8c9ff;
-  background: #fefaff;
+  border: 1px dashed #bbb;
+  padding: 12px;
+  border-radius: 8px;
   cursor: pointer;
-  text-align: center;
+  background: #fafafa;
   font-size: 14px;
-  color: #666;
 }
 
-.upload-file::-webkit-file-upload-button {
-  visibility: hidden;
-}
-
-.upload-file::before {
-  content: "Drag & drop or choose file to upload\nJPG, PNG, SVG (Max 5MB)";
-  white-space: pre-line;
-  display: block;
-  text-align: center;
-  color: #ca7be5;
-  font-weight: 500;
-}
-
-/* Image preview box */
+/* Preview box */
 .preview-box {
   margin-top: 10px;
-  padding: 10px;
-  border-radius: 12px;
-  background: #f6f7ff;
-  border: 1px solid #eed6ff;
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
-/* Preview image */
 .preview-img {
   max-width: 100%;
-  max-height: 180px;
+  max-height: 220px;
   border-radius: 10px;
   object-fit: cover;
-  box-shadow: 0 8px 20px rgba(178, 90, 216, 0.25);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
 }
 
 /* Upload button */
 .upload-btn {
-  margin-top: 6px;
+  margin-top: 10px;
   padding: 12px;
-  border-radius: 12px;
   border: none;
-  font-size: 15px;
-  font-weight: 600;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4e0079, #7300ba);
   color: #fff;
-  background: linear-gradient(180deg, #792d8c, #711b71);
+  font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .upload-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 20px rgba(90, 99, 216, 0.35);
+  box-shadow: 0 8px 18px rgba(108, 99, 255, 0.35);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .upload-card {
+    padding: 25px 20px;
+  }
 }

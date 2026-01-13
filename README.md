@@ -45,5 +45,5 @@
 
 ## 🔗 Live Demo
 
-🌍 [View Portfolio Website](https://hiruniwijerathna.github.io/My-profile/)  
+🌍 [View Demo](https://drive.google.com/file/d/1MKdJ36kw8L1qKicJHIwtLuAhbJNYrE3p/view?usp=sharing)  
 > Replace with your actual live link

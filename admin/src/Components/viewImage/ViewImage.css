@@ -1,0 +1,318 @@
+/* PAGE */
+.view-images-page {
+  background: #faeefd;
+  min-height: 100vh;
+  padding-top: 20px;
+}
+
+.view-images-container {
+  max-width: 1100px;
+  margin: auto;
+  background: #fdf5ff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* BACK BUTTON */
+.back-btn {
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  cursor: pointer;
+  color: #1877f2;
+}
+
+.top-back {
+  padding: 12px 20px;
+}
+
+/* COVER PHOTO */
+.cover-photo {
+  width: 100%;
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.cover-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+}
+
+/* USER INFO */
+.user-info {
+  position: relative;
+  margin-top: -100px;
+  padding: 10px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid #dddddd;
+  z-index: 2;
+}
+
+/* PROFILE IMAGE */
+.profile-photo {
+  width: 140px;
+  height: 140px;
+  margin: -90px auto 10px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  background: #eee;
+  overflow: hidden;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #1877f2;
+  color: #fff;
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* USER TEXT */
+.user-info h2 {
+  margin: 10px 0 5px;
+  font-size: 22px;
+}
+
+.user-info p {
+  margin: 4px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+/* SECTION TITLE */
+.section-title {
+  padding: 20px;
+  font-size: 18px;
+  border-bottom: 1px solid #ffffff;
+}
+
+/* IMAGE GRID */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* IMAGE CARD */
+.image-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.image-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.image-title {
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+}
+
+.image-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* ACTION ICONS */
+.image-actions {
+  display: flex;
+  gap: 18px;
+  padding: 10px 12px;
+}
+
+.action-icon {
+  font-size: 22px;
+  cursor: pointer;
+  color: #555;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.action-icon:hover {
+  transform: scale(1.2);
+}
+
+.liked {
+  color: red;
+}
+
+/* STATUS TEXT */
+.status-text {
+  padding: 20px;
+  text-align: center;
+  color: #777;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* GRID LAYOUT */
+.pdf-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+  padding: 20px;
+}
+
+/* CARD */
+.pdf-image-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+.pdf-image-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* PDF IMAGE */
+.pdf-file-img {
+  width: 140px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+/* TITLE */
+.pdf-title-box {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  background: #f5f6fa;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  word-break: break-word;
+}
+
+/* BUTTON CONTAINER (THIS CENTERS THEM) */
+.pdf-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+/* BUTTONS */
+.open-btn,
+.download-btn {
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  transition: 0.3s;
+}
+
+/* COLORS */
+.open-btn {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+}
+
+.download-btn {
+  background: linear-gradient(135deg, #7c3aed, #9333ea);
+}
+
+.open-btn:hover,
+.download-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* SOCIAL ICONS */
+.pdf-social {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.action-icon {
+  cursor: pointer;
+  font-size: 18px;
+  color: #555;
+  transition: 0.2s;
+}
+
+.action-icon:hover {
+  color: #2563eb;
+}
+
+.liked {
+  color: #e11d48;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  gap: 20px; /* space between buttons */
+  margin: 20px 0;
+}
+
+.tab-btn {
+  padding: 8px 40px; /* make buttons slightly bigger */
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.tab-btn:hover {
+  background: #f0f0f0;
+}
+
+.tab-btn.active {
+  background: #581577;
+  color: white;
+  border-color: #9b35c7;
+}

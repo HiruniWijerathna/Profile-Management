@@ -1,0 +1,58 @@
+.edit-image-wrapper {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.edit-image-wrapper h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.edit-image-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.edit-image-form input[type="text"],
+.edit-image-form input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.image-preview {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.image-preview img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.btn.update-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn.update-btn:hover {
+  background: #0056b3;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}

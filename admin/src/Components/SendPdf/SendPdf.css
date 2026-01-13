@@ -1,0 +1,113 @@
+body {
+  background: #fbf3ff;
+  font-family: "Inter", sans-serif;
+}
+
+/* Main Card */
+.uplodepdfform {
+  max-width: 900px;
+  margin: 60px auto;
+  background: white;
+  border-radius: 18px;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08);
+  height: 600px;
+
+}
+
+/* Left image */
+.leftImage {
+  width: 45%;
+  background: #d4d4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.leftImage img {
+  width: 85%;
+  max-width: 300px;
+}
+
+/* Right Form */
+.rightForm {
+  width: 55%;
+  padding: 70px;
+  
+}
+
+.rightForm h2 {
+  font-size: 32px;
+  margin-bottom: 5px;
+  color: #1f2937;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 30px;
+}
+
+/* Inputs */
+.rightForm input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+  outline: none;
+  margin-bottom: 30px;
+  transition: 0.3s;
+  
+}
+
+.rightForm input:focus {
+  border-color: #c025eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.rightForm input[type="file"] {
+  background: #f9fafb;
+  cursor: pointer;
+}
+
+/* Button */
+.rightForm button {
+  width: 100%;
+  padding: 14px;
+  background: #630b75;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.rightForm button:hover {
+  background: #991eaf;
+}
+
+/* Message */
+.message {
+  margin-top: 15px;
+  font-weight: 600;
+  color: green;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .uplodepdfform {
+    flex-direction: column;
+  }
+
+  .leftImage,
+  .rightForm {
+    width: 100%;
+  }
+
+  .leftImage {
+    height: 220px;
+  }
+}

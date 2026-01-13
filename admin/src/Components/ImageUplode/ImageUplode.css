@@ -1,0 +1,136 @@
+body {
+  background: #faeaff;
+  font-family: "Inter", sans-serif;
+}
+
+/* Page */
+.upload-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+
+/* Card */
+.upload-card {
+  width: 900px;
+  background: white;
+  border-radius: 18px;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Left image */
+.upload-left {
+  width: 45%;
+  background: #f6c5d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-left img {
+  width: 80%;
+  max-width: 300px;
+}
+
+/* Right side */
+.upload-right {
+  width: 55%;
+  padding: 70px;
+}
+
+.upload-right h2 {
+  font-size: 32px;
+  margin-bottom: 5px;
+  color: #1f2937;
+}
+
+.upload-right input {
+ width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+  outline: none;
+  margin-bottom: 30px;
+  transition: 0.3s;
+  
+}
+
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 25px;
+}
+
+/* Inputs */
+.upload-input,
+.upload-file {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+  outline: none;
+  margin-bottom: 18px;
+  transition: 0.3s;
+}
+
+.upload-input:focus,
+.upload-file:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.upload-file {
+  background: #f9fafb;
+  cursor: pointer;
+}
+
+/* Preview */
+.preview-box {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.preview-img {
+  max-width: 100%;
+  max-height: 150px;
+  border-radius: 10px;
+  border: 1px solid #eae5eb;
+}
+
+/* Button */
+.upload-btn {
+  width: 100%;
+  padding: 14px;
+  background: #3f0e64;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.upload-btn:hover {
+  background: #7c1eaf;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .upload-card {
+    flex-direction: column;
+  }
+
+  .upload-left,
+  .upload-right {
+    width: 100%;
+  }
+
+  .upload-left {
+    height: 220px;
+  }
+}

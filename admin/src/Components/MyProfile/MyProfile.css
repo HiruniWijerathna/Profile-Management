@@ -1,0 +1,304 @@
+/* ------------------- PAGE WRAPPER ------------------- */
+.mprofile-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 80px 20px;
+  background: #f4f0f5;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.profile-images-layout {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* ------------------- LEFT SIDEBAR ------------------- */
+.profile-sidebar {
+  flex: 0 0 300px;
+  background: #ffffff;
+  padding: 100px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-photor {
+  width: 170px;
+  height: 170px;
+  border-radius: 12%;
+  overflow: hidden;
+  margin-bottom: 15px;
+  border: 5px solid #3c0959;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-photor img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photor-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #560778;
+  color: #fff;
+  font-size: 48px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-sidebar h2 {
+  margin: 10px 0 5px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.profile-sidebar p {
+  font-size: 14px;
+  color: #555;
+  margin: 4px 0;
+}
+
+.mprofile-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  width: 100%;
+}
+
+.btn {
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-btn {
+  background: #630b83;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background: #9814b2;
+}
+
+.delete-btn {
+  background: #f44336;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background: #d32f2f;
+}
+
+/* ------------------- TAB BUTTONS ------------------- */
+.tab-buttons{
+  display: flex;
+  gap: 7px;
+  margin: 15px 0;
+  width: 100%;
+  
+}
+
+.tab-btns {
+  flex: 1;
+  padding: 10px 0;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+
+}
+
+.tab-btns.active {
+  background-color: #3729b3;
+  color: #fff;
+  border-color: #370b83;
+}
+
+.tab-btns:hover {
+  background-color: #e0e0e0;
+}
+
+/* ------------------- RIGHT: CONTENT ------------------- */
+.uploaded-content {
+  flex: 1;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* ------------------- IMAGES ------------------- */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.image-card {
+  background: #efe8ef;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.image-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.image-card img {
+  width: 98%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.image-title {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.image-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px;
+}
+
+/* ------------------- PDF CARDS ------------------- */
+.pdf-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 per row */
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.pdf-card-horizontal {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pdf-card-horizontal:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.pdf-folder {
+  width: 70px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.pdf-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.pdf-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.pdf-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.edit-icon {
+  font-size: 20px;
+  color: #2563eb;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit-icon:hover {
+  color: #1d4ed8;
+}
+
+.delete-icon {
+  font-size: 20px;
+  color: #dc2626;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete-icon:hover {
+  color: #b91c1c;
+}
+
+/* ------------------- LOADING & STATUS TEXT ------------------- */
+.loading-text,
+.status-text {
+  text-align: center;
+  color: #777;
+  font-size: 16px;
+  padding: 20px 0;
+}
+
+/* ------------------- RESPONSIVE ------------------- */
+@media (max-width: 992px) {
+  .profile-images-layout {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .profile-sidebar {
+    padding: 80px 20px;
+  }
+
+  .tab-buttons {
+    flex-direction: column;
+  }
+
+  .tab-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .pdf-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-sidebar {
+    padding: 60px 15px;
+  }
+
+  .mprofile-wrapper {
+    padding: 60px 15px;
+  }
+}

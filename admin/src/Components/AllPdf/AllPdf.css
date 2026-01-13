@@ -1,0 +1,129 @@
+.all-pdf-container {
+  background: #f4f6fb;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* SEARCH BAR */
+.search-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px;
+  width: 280px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.reset-btn {
+  background: #6a0dad;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  background: #580c9a;
+}
+
+/* TABLE */
+.allpdf-container {
+  max-width: 1100px;
+  margin: auto;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* ROW */
+.pdf-card {
+  display: grid;
+  grid-template-columns: 250px 2fr 650px 60px;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  transition: 0.2s ease;
+}
+
+.pdf-card:hover {
+  background: #f6f3ff;
+}
+
+.pdf-card:last-child {
+  border-bottom: none;
+}
+
+/* USER CELL */
+.pdf-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+}
+
+.profile-name:hover {
+  color: #6a0dad;
+}
+
+/* PDF CELL */
+.pdf-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pdf-icon {
+  width: 40px;
+}
+
+.pdf-title {
+  font-size: 14px;
+  color: #444;
+}
+
+/* DELETE */
+.delete-btnn {
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+.delete-btnn:hover {
+  background: #d9363e;
+  transform: scale(1.1);
+}

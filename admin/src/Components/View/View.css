@@ -1,0 +1,111 @@
+/* Page background */
+.view-profile-page {
+  min-height: 100vh;
+  background: #f1ebff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* Card */
+.viewprofile-form {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 35px 25px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+
+
+/* Profile photo */
+.view-profile-photo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.view-profile-photo img {
+  width: 150px;
+  height: 150px;
+  border-radius: 12%;
+  object-fit: cover;
+  border: 2px solid #3d0649;
+}
+
+.photo-placeholder {
+  width: 150px;
+  height: 150px;
+  border-radius: 12%;
+  background: #bbb;
+  border-color: #480562;
+  color: #fff;
+  font-size: 48px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ✅ FULL NAME STYLE (LIKE IMAGE) */
+.full-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+  margin: 12px 0 25px;
+}
+
+/* Info rows */
+.info-row {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.info-row span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+}
+
+.info-row p {
+  font-size: 14px;
+  color: #111;
+  margin-top: 4px;
+}
+
+
+/* Back button */
+.top-back {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  background: transparent;
+  border: none;
+  padding: 6px 10px;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: #017cf6;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+/* Hover effect */
+.top-back:hover {
+  color: #0056c7;
+  transform: translateX(-2px);
+}
+
+/* Active click */
+.top-back:active {
+  transform: scale(0.96);
+}

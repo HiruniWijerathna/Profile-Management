@@ -30,7 +30,7 @@
 /* COVER PHOTO */
 .cover-photo {
   width: 100%;
-  height: 260px;
+  height: 350px;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -100,7 +100,7 @@
 .section-title {
   padding: 20px;
   font-size: 18px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ffffff;
 }
 
 /* IMAGE GRID */
@@ -165,4 +165,121 @@
   padding: 20px;
   text-align: center;
   color: #777;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* GRID LAYOUT */
+.pdf-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+  padding: 20px;
+}
+
+/* CARD */
+.pdf-image-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+.pdf-image-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* PDF IMAGE */
+.pdf-file-img {
+  width: 140px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+/* TITLE */
+.pdf-title-box {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  background: #f5f6fa;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  word-break: break-word;
+}
+
+/* BUTTON CONTAINER (THIS CENTERS THEM) */
+.pdf-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+/* BUTTONS */
+.open-btn,
+.download-btn {
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  transition: 0.3s;
+}
+
+/* COLORS */
+.open-btn {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+}
+
+.download-btn {
+  background: linear-gradient(135deg, #7c3aed, #9333ea);
+}
+
+.open-btn:hover,
+.download-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* SOCIAL ICONS */
+.pdf-social {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.action-icon {
+  cursor: pointer;
+  font-size: 18px;
+  color: #555;
+  transition: 0.2s;
+}
+
+.action-icon:hover {
+  color: #2563eb;
+}
+
+.liked {
+  color: #e11d48;
 }

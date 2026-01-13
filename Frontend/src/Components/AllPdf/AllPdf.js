@@ -7,12 +7,9 @@ import { FaHeart, FaRegComment, FaPaperPlane } from "react-icons/fa";
 function AllPdf() {
   const [allPdfs, setAllPdfs] = useState([]);
   const [liked, setLiked] = useState({}); // store liked state per PDF
+  const [search, setSearch] = useState(""); // search input
 
-  // PDF images from public folder
-  const pdfImages = [
-    "/pdf.jpg",
-    
-  ];
+  const pdfImages = ["/pdf.jpg"];
 
   useEffect(() => {
     const fetchPdfs = async () => {
@@ -29,7 +26,6 @@ function AllPdf() {
     fetchPdfs();
   }, []);
 
-  // Toggle heart
   const toggleLike = (id) => {
     setLiked((prev) => ({
       ...prev,
@@ -37,14 +33,34 @@ function AllPdf() {
     }));
   };
 
+  // Filter PDFs based on search
+  const filteredPdfs = allPdfs.filter((pdf) =>
+    pdf.fullname.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <>
       <Nav />
+      <div className="all-pdf-container">
+        <h2 className="page-title">All Uploaded Pdf Document</h2>
+
+      {/* Search Bar */}
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search by name..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="search-input"
+        />
+        <button onClick={() => setSearch("")} className="reset-btn">
+          Reset
+        </button>
+      </div>
 
       <div className="allpdf-container">
-        {allPdfs.map((pdf, index) => (
+        {filteredPdfs.map((pdf, index) => (
           <div key={pdf._id} className="pdf-card">
-
             {/* Profile Header */}
             <div className="pdf-header">
               <img
@@ -106,11 +122,10 @@ function AllPdf() {
                 <FaRegComment />
                 <FaPaperPlane />
               </div>
-
             </div>
-
           </div>
         ))}
+      </div>
       </div>
     </>
   );

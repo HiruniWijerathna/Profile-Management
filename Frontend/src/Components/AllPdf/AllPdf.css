@@ -1,12 +1,23 @@
+.all-pdf-container{
+    padding: 30px;
+  background: #fbeefd;
+  min-height: 100vh;
+}
+
 /* Container – 3 cards per row */
 .allpdf-container {
-  padding: 60px;
-  background: #fce1ff;
+  padding: 0 60px;
+  
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
-
+.page-title {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 26px;
+  font-weight: 700;
+}
 /* Card */
 .pdf-card {
   background: #ffffff;
@@ -83,7 +94,7 @@
 /* Open button */
 .open-btn {
   padding: 8px 14px;
-  background: #1040b9;
+  background: #08782d;
   color: #ffffff;
   border-radius: 8px;
   font-size: 13px;
@@ -93,7 +104,7 @@
 }
 
 .open-btn:hover {
-  background: #051696;
+  background: #05963a;
   transform: scale(1.05);
 }
 
@@ -101,7 +112,7 @@
 .download-btn {
   width: fit-content;
   padding: 9px 14px;
-  background: #570f8a;
+  background: #3227d0;
   color: #ffffff;
   border-radius: 8px;
   font-size: 14px;
@@ -111,7 +122,7 @@
 }
 
 .download-btn:hover {
-  background: #8500d2;
+  background: #0015d2;
   transform: scale(1.05);
 }
 
@@ -156,6 +167,43 @@
   font-size: 14px;
   color: #374151;
 }
+
+
+
+/* Search container */
+.search-container {
+  display: flex;
+  justify-content: center;   /* center horizontally */
+  align-items: center;       /* center vertically */
+  gap: 12px;
+  
+  
+}
+
+.search-container input {
+  width: 260px;
+  padding:  10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.search-container .reset-btn {
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #6a0dad;   /* purple */
+  color: white;
+  transition: 0.2s;
+}
+
+.search-container .reset-btn:hover {
+  background-color: #580c9a;
+}
+
+
 
 /* Responsive */
 @media (max-width: 1024px) {

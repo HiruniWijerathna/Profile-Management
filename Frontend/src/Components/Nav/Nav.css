@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 14px 75px;
-  background-color: #fbf9fd;
+  background-color: #3e0059;
   border-bottom: 1px solid #eaeaea;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -21,6 +21,7 @@
   font: bold;
   font-style: italic;
   font-style:oblique;
+  color: #f2d7ff;
 }
 
 
@@ -43,12 +44,12 @@
 /* Links */
 .nav-menu a {
   text-decoration: none;
-  color: #333;
+  color: #f5d6ff;
   transition: color 0.2s ease;
 }
 
 .nav-menu a:hover {
-  color: #670000;   /* Dark red color on hover */
+  color: #d988ff;   /* Dark red color on hover */
   font-weight: bold; /* Make text bold on hover */
 }
 

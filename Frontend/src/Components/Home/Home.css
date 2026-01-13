@@ -1,132 +1,164 @@
+body {
+  background: #f3f7ff;
+  font-family: "Inter", sans-serif;
+}
+
+/* HERO */
 .hero {
   text-align: center;
-  padding: 80px 20px;
-  color: white;
+  padding: 10px 20px 20px;
+  min-height: 48vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-  /* Background image with overlay */
+  /* Background image + overlay */
   background:
-    linear-gradient(
-      rgba(155, 70, 229, 0.85),
-      rgba(189, 99, 241, 0.85)
-    ),
-    url("../../assets/home.jpg");
+    linear-gradient(rgba(229, 127, 254, 0.85), rgba(255, 240, 255, 0.85)),
+    url("../../assets/home1.jpg");
 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  color: white;
 }
 
-
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
+  font-size: 60px;
+  font-weight: 800;
 }
 
 .tagline {
-  font-size: 1.3rem;
-  font-weight: 500;
+  font-size: 22px;
+  margin-top: 10px;
 }
 
 .description {
   max-width: 600px;
-  margin: 15px auto;
+  margin: 20px auto;
+  font-size: 18px;
+  opacity: 0.9;
 }
 
 .hero-buttons {
-  margin-top: 25px;
-  border: #111827;
+  margin-top: 30px;
 }
 
+/* Buttons */
 .btn {
-  padding: 12px 22px;
-  border-radius: 8px;
-  text-decoration: none;
-  margin: 0 10px;
+  padding: 14px 32px;
+  border-radius: 10px;
   font-weight: 600;
-  
+  text-decoration: none;
+  transition: 0.3s;
+  display: inline-block;
 }
 
+.btn.primary {
+  background: white;
+  color: #2563eb;
+}
 
-/* Secondary button */
 .btn.secondary {
+  background: transparent;
   border: 2px solid white;
   color: white;
-  background: transparent;
-  padding: 8px 40px;
 }
 
-/* Hover effect */
-.btn.secondary:hover {
-  background: white;
-  color: #6d28d9;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+.btn:hover {
+  transform: translateY(-3px) scale(1.05);
 }
 
+/* FEATURES */
 .features {
-  padding: 60px 20px;
+  padding: 20px 50px;
   text-align: center;
+}
+
+.features h2 {
+  font-size: 30px;
+  margin-bottom: 30px;
+  color: #1f2937;
 }
 
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-top: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
 }
 
+/* Feature cards */
 .feature-card {
-  padding: 25px;
-  border-radius: 12px;
-  background: #f9fafb;
-}
-
-
-
-.footer {
-  text-align: center;
-  padding: 20px;
-  background: #111827;
-  color: #fff;
-}
-
-.cta {
+  background: white;
+  border-radius: 20px;
+  padding: 30px 25px 40px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  transition: 0.4s;
   position: relative;
+  overflow: hidden;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 25px 60px rgba(37, 99, 235, 0.25);
+}
+
+/* Images */
+.feature-card img {
+  width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  transition: 0.4s;
+}
+
+.feature-card:hover img {
+  transform: scale(1.08);
+}
+
+.feature-card h3 {
+  font-size: 22px;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  color: #6b7280;
+  font-size: 15px;
+}
+
+/* CTA */
+.cta {
+  background: linear-gradient(135deg, #4f46e5, #2563eb);
   padding: 80px 20px;
   text-align: center;
-  color: rgb(0, 0, 0);
-
-  background:rgb(211, 206, 253);
-   
-   
+  color: white;
 }
 
 .cta h2 {
-  font-size: 1.6rem;
+  font-size: 40px;
   margin-bottom: 25px;
-  font-weight: 700;
 }
 
-/* CTA BUTTON */
-.cta .btn.primary {
-  background: white;
-  color: #4f46e5;
-  padding: 14px 30px;
-  border-radius: 30px;
-  font-size: 16px;
-  font-weight: 500;
-  transition: all 0.3s ease;
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #1f2937;
+  color: #9ca3af;
 }
 
-.cta .btn.primary:hover {
-  background: #e0e7ff;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-/* RESPONSIVE */
+/* Mobile */
 @media (max-width: 768px) {
-  .cta h2 {
-    font-size: 1.8rem;
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .tagline {
+    font-size: 18px;
+  }
+
+  .features h2 {
+    font-size: 32px;
   }
 }

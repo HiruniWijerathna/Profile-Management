@@ -19,7 +19,7 @@ body {
 /* Left image */
 .leftImage {
   width: 45%;
-  background: #e9e4ff;
+  background: #d4d4f9;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,7 +33,7 @@ body {
 /* Right Form */
 .rightForm {
   width: 55%;
-  padding: 90px;
+  padding: 70px;
   
 }
 

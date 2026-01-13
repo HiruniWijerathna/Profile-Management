@@ -1,13 +1,22 @@
 import React from 'react';
 import './Nav.css';
 import { Link } from 'react-router-dom';
-import { FaHome, FaUsers, FaPhotoVideo, FaUserCircle, FaSignOutAlt } from "react-icons/fa";
+import { 
+  FaHome, 
+  FaUsers, 
+  FaPhotoVideo, 
+  FaUserCircle, 
+  FaSignOutAlt, 
+  FaFilePdf 
+} from "react-icons/fa";
 
 function Nav() {
   return (
     <nav className="navbar">
+      {/* Logo */}
       <div className="logo1">Sharefolio</div>
 
+      {/* Navigation Menu */}
       <ul className="nav-menu">
         {/* Home */}
         <li>
@@ -30,6 +39,13 @@ function Nav() {
           </Link>
         </li>
 
+        {/* PDFs */}
+        <li>
+          <Link to="/all-pdf" className="nav-icon">
+            <FaFilePdf size={22} title="PDFs" />
+          </Link>
+        </li>
+
         {/* User Dropdown */}
         <li className="dropdown">
           <Link to="#" className="nav-icon">
@@ -44,6 +60,9 @@ function Nav() {
             </li>
             <li>
               <Link to="/imageuplode">Upload Image</Link>
+            </li>
+            <li>
+              <Link to="/sendpdf">Upload PDF</Link>
             </li>
           </ul>
         </li>

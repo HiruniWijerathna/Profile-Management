@@ -17,6 +17,8 @@ import AllImages from './Components/AllImages/AllImages'
 import SearchImages from './Components/SearchImages/SearchImages'
 import ViewImage from "./Components/viewImage/viewImage";
 import UploadImageEdit from './Components/UploadImageEdit/UploadImageEdit';
+import SendPdf from './Components/SendPdf/SendPdf';
+import AllPdf from './Components/AllPdf/AllPdf';
 
 
 function App() {
@@ -36,10 +38,12 @@ function App() {
         <Route path="/myprofile" element={<MyProfile/>}/>
         <Route path="/view/:id" element={<View />} />
         <Route path="/imageuplode" element={<ImageUplode />} />
-          <Route path="/all-images" element={<AllImages />} />
-          <Route path="/search-images" element={<SearchImages />} />
-          <Route path="/view-images/:userEmail" element={<ViewImage />} />
-         <Route path="/all-images/:id" element={<UploadImageEdit />} />
+        <Route path="/all-images" element={<AllImages />} />
+        <Route path="/search-images" element={<SearchImages />} />
+        <Route path="/view-images/:userEmail" element={<ViewImage />} />
+        <Route path="/all-images/:id" element={<UploadImageEdit />} />
+        <Route path="/sendpdf" element={<SendPdf />} />
+        <Route path="/all-pdf" element={<AllPdf />} />
 
 
 

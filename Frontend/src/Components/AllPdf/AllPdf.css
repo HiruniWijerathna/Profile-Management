@@ -1,0 +1,171 @@
+/* Container – 3 cards per row */
+.allpdf-container {
+  padding: 60px;
+  background: #fce1ff;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Card */
+.pdf-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  transition: 0.25s ease;
+}
+
+.pdf-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Header */
+.pdf-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* Divider */
+.divider {
+  height: 2px;
+  margin: 1px 0 16px;
+  border-radius: 6px;
+  background: linear-gradient(to right, #fbdfff, #e4dbff);
+}
+
+/* Content */
+.pdf-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* PDF image */
+.pdf-icon {
+  width: 90px;
+}
+
+/* Info */
+.pdf-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pdf-title {
+  font-size: 16px;
+  color: #374151;
+}
+
+/* Button group */
+.pdf-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Open button */
+.open-btn {
+  padding: 8px 14px;
+  background: #1040b9;
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.open-btn:hover {
+  background: #051696;
+  transform: scale(1.05);
+}
+
+/* Download button */
+.download-btn {
+  width: fit-content;
+  padding: 9px 14px;
+  background: #570f8a;
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.download-btn:hover {
+  background: #8500d2;
+  transform: scale(1.05);
+}
+
+/* Instagram-style footer */
+.insta-footer {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.insta-actions {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 6px;
+}
+
+/* Heart icon */
+.like-btn {
+  font-size: 20px;
+  color: #ffffff; /* default white */
+  cursor: pointer;
+  border: #000000;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.like-btn:hover {
+  transform: scale(1.15);
+}
+
+.like-btn.liked {
+  color: #ff0000; /* red when clicked */
+}
+
+/* Comment & paper plane icons */
+.insta-actions svg {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Caption */
+.insta-caption {
+  font-size: 14px;
+  color: #374151;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .allpdf-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .allpdf-container {
+    grid-template-columns: 1fr;
+  }
+}

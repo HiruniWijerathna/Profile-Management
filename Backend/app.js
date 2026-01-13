@@ -9,7 +9,8 @@ const userRoutes = require("./Routes/userRoute");
 
 // Models
 const Register = require("./Model/registerModel"); // make sure model exports correctly
-const ImageModel = require("./Model/imageModel"); // image model
+const ImageModel = require("./Model/imageModel");
+const Pdf = require("./Model/pdfModel");    // image model
 
 const app = express();
 
@@ -17,6 +18,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use("/files",express.static("files"));
 
 // Serve uploaded images
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
@@ -123,6 +125,107 @@ app.get("/getImage", async (req, res) => {
     res.status(500).json({ status: "error", error: err.message });
   }
 });
+
+// Serve uploaded PDFs
+app.use("/files", express.static(path.join(__dirname, "files")));
+
+// ================== MULTER CONFIG FOR PDF ==================
+const pdfStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "files"); // folder backend/files must exist
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
+});
+
+const uploadPdf = multer({
+  storage: pdfStorage,
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype === "application/pdf") cb(null, true);
+    else cb(new Error("Only PDFs are allowed"), false);
+  },
+});
+
+
+app.get("/getPdf", async (req, res) => {
+  try {
+    const data = await Pdf.aggregate([
+      {
+        $lookup: {
+          from: "userdetails",      // MongoDB collection name of users
+          localField: "email",      // PDF email
+          foreignField: "email",    // user email field
+          as: "userInfo",
+        },
+      },
+      { $unwind: { path: "$userInfo", preserveNullAndEmptyArrays: true } },
+      {
+        $project: {
+          title: 1,
+          pdfFile: 1,
+          email: 1,
+          fullname: {
+            $cond: [
+              { $ifNull: ["$userInfo.firstname", false] },
+              { $concat: ["$userInfo.firstname", " ", "$userInfo.lastname"] },
+              "$email",
+            ],
+          },
+          profilePhoto: "$userInfo.profilePhoto", // profile image filename
+        },
+      },
+    ]);
+
+    res.status(200).json({ status: "ok", data });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ status: "error", message: err.message });
+  }
+});
+
+// ================== UPLOAD PDF ==================
+app.post("/send-pdf", uploadPdf.single("pdf"), async (req, res) => {
+  try {
+    const { title, email } = req.body;
+
+    console.log("Body:", req.body);
+    console.log("File:", req.file);
+
+    if (!req.file || !title || !email) {
+      return res.status(400).json({
+        status: "error",
+        message: "PDF, title, or email missing",
+      });
+    }
+
+    await Pdf.create({
+      title,
+      email,
+      pdfFile: req.file.filename,
+    });
+
+    res.status(200).json({
+      status: "ok",
+      message: "PDF uploaded successfully",
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ status: "error", message: err.message });
+  }
+});
+
+// ================== GET ALL PDFs ==================
+app.get("/getPdf", async (req, res) => {
+  try {
+    const data = await Pdf.find({});
+    res.status(200).json({ status: "ok", data });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ status: "error", message: err.message });
+  }
+});
+
 
 // ========== DATABASE ==========
 mongoose

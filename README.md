@@ -38,7 +38,7 @@
 - **API Communication:** Axios  
 - **Authentication:** JWT  
 - **Deployment:**  
-  - Frontend: Vercel / Netlify  
+  - Frontend: Vercel 
   - Database: MongoDB Atlas  
 
 ---

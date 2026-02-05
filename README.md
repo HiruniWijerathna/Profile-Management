@@ -69,33 +69,21 @@ The platform is designed with a modern, clean, and responsive user interface.
 
 ## 🛠️ Tech Stack
 
-### 💻 Frontend
-- React.js
-- CSS
-- Axios
-- React Router
-
-### 🖥️ Backend
-- Node.js
-- Express.js
-
-### 🗄️ Database
-- MongoDB 
-
-### 🔐 Authentication
-- JSON Web Token (JWT)
-
-### 🌐 Deployment
-- Frontend: Vercel
-- Database: MongoDB Atlas
+| Category | Technologies |
+|----------|-------------|
+| 💻 Frontend | React.js, CSS, Axios, React Router |
+| 🖥️ Backend | Node.js, Express.js |
+| 🗄️ Database | MongoDB |
+| 🔐 Authentication | JWT |
+| 🌐 Deployment | Vercel (Frontend), MongoDB Atlas (Database) |
 
 ---
 
 ## 🚀 Live Demo
 
 🌍 **Frontend (Hosted on Vercel)**  
-👉 https://profile-management-psi.vercel.app/
+👉 [Frontend Host](https://profile-management-psi.vercel.app/)
 
 🎥 **Project Demo Video**  
-👉 https://drive.google.com/file/d/1MKdJ36kw8L1qKicJHIwtLuAhbJNYrE3p/view?usp=sharing  
+👉 [Demo Video](https://drive.google.com/file/d/1MKdJ36kw8L1qKicJHIwtLuAhbJNYrE3p/view?usp=sharing)
 

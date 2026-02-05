@@ -4,46 +4,98 @@
   <img src="banner.png" alt="ShareFalio Banner" width="100%" />
 </p>
 
-**ShareFalio** is a **MERN stack** (MongoDB, Express.js, React.js, Node.js) web application that allows users to **create profiles, upload images and PDF documents, and share content** with other users in a modern, user-friendly interface.
+<p align="center">
+  <img src="https://img.shields.io/badge/MERN-Stack-green" />
+  <img src="https://img.shields.io/badge/Frontend-React-blue" />
+  <img src="https://img.shields.io/badge/Backend-Node.js-success" />
+  <img src="https://img.shields.io/badge/Database-MongoDB-brightgreen" />
+  <img src="https://img.shields.io/badge/Deployment-Vercel-black" />
+</p>
 
 ---
 
-## 🛠️ Key Features
+## 📌 About The Project
 
-- 🧑‍💻 **User Profiles**  
-  - Create and edit personal profiles  
-  - Upload profile pictures  
+**ShareFalio** is a full-stack **MERN (MongoDB, Express.js, React.js, Node.js)** web application that allows users to:
 
-- 📄 **File Uploads**  
-  - Upload images and PDF documents  
-  - View content uploaded by other users  
+- Create and manage personal profiles  
+- Upload profile pictures  
+- Upload images  
+- Upload PDF documents  
+- Share content with other users  
+- Explore and view shared content  
 
-- 👀 **Content Sharing**  
-  - Users can explore and access shared content  
+The platform is designed with a modern, clean, and responsive user interface.
 
-- 🔒 **Authentication & Security**  
-  - Register and log in securely  
-  - JWT-based authentication  
-
-- 📱 **Responsive Design**  
-  - Works seamlessly on desktop and mobile devices  
 
 ---
 
-## 🛠️ Tech Stack (MERN)
+## 🛠️ Features
 
-- **Frontend:** React.js, CSS  
-- **Backend:** Node.js, Express.js  
-- **Database:** MongoDB with Mongoose  
-- **API Communication:** Axios  
-- **Authentication:** JWT  
-- **Deployment:**  
-  - Frontend: Vercel 
-  - Database: MongoDB Atlas  
+### 👤 User Management
+- User Registration
+- Secure Login System
+- JWT Authentication
+- Profile Creation & Editing
+- Upload Profile Picture
+
+### 🖼️ Image Upload
+- Upload personal images
+- Display images in user profiles
+- Browse other users’ images
+
+### 📄 Document Upload
+- Upload PDF documents
+- View shared PDF files
+- Download documents
+
+### 🔍 Content Sharing & Exploration
+- Explore other user profiles
+- View shared images and documents
+- Access publicly shared content
+
+### 🔐 Security
+- JWT-based authentication
+- Protected routes
+- Secure API endpoints
+- Input validation
+
+### 📱 Responsive Design
+- Mobile-friendly layout
+- Clean and modern UI
+- Works across all screen sizes
 
 ---
 
-## 🔗 Live Demo
+## 🛠️ Tech Stack
 
-🌍 [View Demo](https://drive.google.com/file/d/1MKdJ36kw8L1qKicJHIwtLuAhbJNYrE3p/view?usp=sharing)  
+### 💻 Frontend
+- React.js
+- CSS
+- Axios
+- React Router
+
+### 🖥️ Backend
+- Node.js
+- Express.js
+
+### 🗄️ Database
+- MongoDB 
+
+### 🔐 Authentication
+- JSON Web Token (JWT)
+
+### 🌐 Deployment
+- Frontend: Vercel
+- Database: MongoDB Atlas
+
+---
+
+## 🚀 Live Demo
+
+🌍 **Frontend (Hosted on Vercel)**  
+👉 https://profile-management-psi.vercel.app/
+
+🎥 **Project Demo Video**  
+👉 https://drive.google.com/file/d/1MKdJ36kw8L1qKicJHIwtLuAhbJNYrE3p/view?usp=sharing  
 
